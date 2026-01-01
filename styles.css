@@ -12,18 +12,64 @@
   --border-soft: rgba(255, 255, 255, 0.08);
 }
 
+/* Light mode overrides */
+html[data-theme="light"] {
+  --bg: #fbf8fc;
+  --bg-soft: #ffffff;
+
+  --text-main: #382443;
+  --text-muted: #5f5568;
+
+  --accent: #1c1822;
+  --accent-soft: #c98aa0;
+
+  --border-soft: rgba(0, 0, 0, 0.08);
+}
+
+html:not([data-theme="light"]) body {
+  background: radial-gradient(circle at top, #1e1a25, var(--bg));
+}
+
 /* ---- Base reset-ish stuff ---- */
 * {
   box-sizing: border-box;
 }
 
+
 body {
   margin: 0;
-  background: radial-gradient(circle at top, #1e1a25, var(--bg));
+  background: var(--bg);
   color: var(--text-main);
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   line-height: 1.7;
 }
+
+/* ---- Theme toggle button ---- */
+.theme-toggle {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+
+  background: var(--bg-soft);
+  border: 1px solid var(--border-soft);
+  color: var(--text-main);
+
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+
+  transition: 0.2s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent-soft);
+  color: var(--accent);
+}
+
 
 /* ---- Page layout ---- */
 .container {
