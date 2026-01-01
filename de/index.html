@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Michelle Elias</title>
+
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body>
+
+<div class="top-controls">
+  <a class="control-btn" href="/en/" aria-label="Switch to English">EN</a>
+  <button class="control-btn" type="button" aria-label="Toggle theme">☾</button>
+</div>
+
+
+<script>
+  const root = document.documentElement;
+  const btn = document.querySelector(".control-btn[type='button']");
+
+  const saved = localStorage.getItem("theme");
+  if (saved) root.setAttribute("data-theme", saved);
+
+  function updateIcon() {
+    const isLight = root.getAttribute("data-theme") === "light";
+    btn.textContent = isLight ? "☼" : "☾";
+  }
+
+  updateIcon();
+
+  btn.addEventListener("click", () => {
+    const current = root.getAttribute("data-theme");
+    const next = current === "light" ? "dark" : "light";
+    root.setAttribute("data-theme", next);
+    localStorage.setItem("theme", next);
+    updateIcon();
+  });
+</script>
+
+
+  <div class="container">
+
+    <header class="header">
+      <h1 class="name">Michelle Elias</h1>
+
+      <p class="subtitle">
+        M.Sc. Biophysik an der Humboldt-Universität zu Berlin <br />
+        Systembiologie | Systemmedizin | Computergestützte Pharmakologie
+      </p>
+
+      <nav class="links">
+        <a class="btn" href="/assets/CV.pdf" target="_blank" rel="noopener">Lebenslauf</a>
+        <a class="btn" href="https://scholar.google.com/citations?user=TX6Or1MAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+        <a class="btn" href="https://orcid.org/0009-0005-7959-3164" target="_blank" rel="noopener">ORCID</a>
+        <a class="btn" href="https://github.com/michelle-elias" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://www.linkedin.com/in/michelle-elias-b28324281/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="mailto:michelle.elias@student.hu-berlin.de">Email</a>
+      </nav>
+    </header>
+
+    <main>
+
+      <section class="section" id="about">
+        <h2 class="section-title">Über</h2>
+        <p class="text">
+          Ich studiere Biophysik im Master an der Humboldt-Universität zu Berlin mit den Schwerpunkten Systembiologie, Systemmedizin und computergestützte Pharmakologie. 
+          Der Fokus meiner Arbeit liegt zurzeit auf PBPK-Modellierung, digitalen Zwillingen und reproduzierbaren Modellpipelines für modellgestützte Präzisionsdosierung. 
+          Darüber hinaus werde ich ab Januar 2026 im Rahmen des SPP 2311-Programms in der Forschungsgruppe von Dr. Matthias König mitwirken.        </p>
+      </section>
+
+      <section class="section" id="currently">
+        <h2 class="section-title">Derzeit</h2>
+        <div class="callout">
+          Ich arbeite an reproduzierbaren PBPK-Modellen für personalisierte Dosierung und interindividuelle Variabilität und trage zum SPP 2311 Projekt bei, beginnend Januar 2026.
+        </div>
+      </section>
+
+      <section class="section" id="publications">
+        <h2 class="section-title">Publikationen</h2>
+
+        <div class="pub-list">
+
+          <article class="pub submitted">
+            <div class="pub-title">Rivaroxaban Pharmacokinetics and Coagulation Effects: Reproducibility of a Physiologically Based Modeling Approach</div>
+            <div class="pub-meta">Myshkina M, Elias M, Casabianca E, and König M · Physiome, 2025 · Zweitautor</div>
+            <div class="badges"> 
+                <span class="badge badge-static">Eingereicht</span>
+              <a class="badge" href="https://github.com/matthiaskoenig/rivaroxaban-model/" target="_blank" rel="noopener">Code</a>
+            </div>
+          </article>
+
+          <article class="pub submitted">
+            <div class="pub-title">Reproducibility of a Digital Twin of the Angiotensin II Receptor Blocker Losartan</div>
+            <div class="pub-meta">Myshkina M, Elias M, Tensil E, and König M · Physiome, 2025 · Zweitautor</div>
+            <div class="badges">
+                <span class="badge badge-static">Eingereicht</span>
+              <a class="badge" href="https://github.com/matthiaskoenig/losartan-model/" target="_blank" rel="noopener">Code</a>
+            </div>
+          </article>
+
+          <article class="pub submitted">
+            <div class="pub-title">Reproducibility of a Physiologically Based Pharmacokinetic and Pharmacodynamic (PBPK/PD) Model of Dapagliflozin</div>
+            <div class="pub-meta">Elias M, Myshkina M, Nemitz N, and König M · Physiome, 2025 · Erstautor</div>
+            <div class="badges">
+                <span class="badge badge-static">Eingereicht</span>
+              <a class="badge" href="https://github.com/matthiaskoenig/dapagliflozin-model/" target="_blank" rel="noopener">Code</a>
+            </div>
+          </article>
+
+          <article class="pub submitted">
+            <div class="pub-title">A Digital Twin of Dapagliflozin Pharmacokinetics and Pharmacodynamics in Type 2 Diabetes Mellitus: Modeling Variability in Dosing, Hepatorenal Impairment, and Food Effects</div>
+            <div class="pub-meta">Nemitz N, Elias M, and König M · Preprints, 2025 · Co-Autor</div>
+            <div class="badges">
+                <span class="badge badge-static">Eingereicht</span>
+              <a class="badge" href="https://doi.org/10.20944/preprints202511.0981.v1" target="_blank" rel="noopener">Preprint</a>
+              <a class="badge" href="https://github.com/matthiaskoenig/dapagliflozin-model/" target="_blank" rel="noopener">Code</a>
+            </div>
+          </article>
+
+          <article class="pub">
+            <div class="pub-title">Reproducibility of a Digital Twin of Glimepiride for Personalized and Stratified Diabetes Treatment</div>
+            <div class="pub-meta">Elias M and König M · Physiome, 2025 · Erstautor</div>
+            <div class="badges">
+                  <span class="badge badge-published">Publiziert</span>
+              <a class="badge" href="https://doi.org/10.36903/physiome.28379193" target="_blank" rel="noopener">DOI</a>
+              <a class="badge" href="https://github.com/matthiaskoenig/glimepiride-model/" target="_blank" rel="noopener">Code</a>
+            </div>
+          </article>
+
+          <article class="pub">
+            <div class="pub-title">A digital twin of glimepiride for personalized and stratified diabetes treatment</div>
+            <div class="pub-meta">Elias M and König M · Frontiers in Pharmacology, 2025 · Erstautor</div>
+            <div class="badges">
+                  <span class="badge badge-published">Publiziert</span>
+              <a class="badge" href="https://doi.org/10.3389/fphar.2025.1686415" target="_blank" rel="noopener">DOI</a>
+              <a class="badge" href="https://doi.org/10.20944/preprints202506.1264.v1" target="_blank" rel="noopener">Preprint</a>
+              <a class="badge" href="https://github.com/matthiaskoenig/glimepiride-model/" target="_blank" rel="noopener">Code</a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="footer">
+    <div>📍 Berlin · Systembiologie | Systemmedizin | Computergestützte Pharmakologie</div>
+    <time class="muted" datetime="2026-01">Zuletzt aktualisiert Januar 2026</time>
+    </footer>
+
+  </div>
+</body>
+</html>

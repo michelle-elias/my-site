@@ -5,18 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Michelle Elias</title>
 
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="/styles.css" />
 </head>
 
 <body>
 
-  <button class="theme-toggle" type="button" aria-label="Toggle theme">
-  ☾
-</button>
+<div class="top-controls">
+  <a class="control-btn" href="/de/" aria-label="Switch to German">DE</a>
+  <button class="control-btn" type="button" aria-label="Toggle theme">☾</button>
+</div>
+
 
 <script>
   const root = document.documentElement;
-  const btn = document.querySelector(".theme-toggle");
+  const btn = document.querySelector(".control-btn[type='button']");
 
   const saved = localStorage.getItem("theme");
   if (saved) root.setAttribute("data-theme", saved);
@@ -44,12 +46,12 @@
       <h1 class="name">Michelle Elias</h1>
 
       <p class="subtitle">
-        M.Sc. Biophysics at HU Berlin <br />
+        M.Sc. Biophysics at Humboldt University of Berlin <br />
         Systems Biology | Systems Medicine | Computational Pharmacology
       </p>
 
       <nav class="links">
-        <a class="btn" href="assets/CV.pdf" target="_blank" rel="noopener">CV</a>
+        <a class="btn" href="/assets/CV.pdf" target="_blank" rel="noopener">CV</a>
         <a class="btn" href="https://scholar.google.com/citations?user=TX6Or1MAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
         <a class="btn" href="https://orcid.org/0009-0005-7959-3164" target="_blank" rel="noopener">ORCID</a>
         <a class="btn" href="https://github.com/michelle-elias" target="_blank" rel="noopener">GitHub</a>
