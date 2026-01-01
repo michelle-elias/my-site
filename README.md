@@ -8,13 +8,18 @@ This is the source code for my personal website hosted at [michelle-elias.de](ht
 
 ## Structure
 
-- `index.html` - Main page
-- `styles.css` - Styling
-- `assets/` - CV and other documents
+- `en/` – English version of the website  
+- `de/` – German version of the website  
+- `styles.css` – Styling  
+- `assets/` – CV and other documents  
 
 ## Local Development
 
 Simply open `index.html` in a browser to view locally.
+
+## Deployment
+
+This is a static website served with Caddy on a Linux server.
 
 ## Contact
 
