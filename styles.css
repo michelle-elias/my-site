@@ -118,11 +118,20 @@ body {
 
 .name {
   font-family: Georgia, "Times New Roman", serif;
-  font-size: 3rem;
+  font-size: 2.5rem;
   margin: 0 0 8px;
   color: var(--accent);
   letter-spacing: 0.3px;
 }
+
+.portfolio {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.5rem;
+  margin: 0 0 8px;
+  color: var(--accent);
+  letter-spacing: 0.3px;
+}
+
 
 .subtitle {
   margin: 0 0 32px;
