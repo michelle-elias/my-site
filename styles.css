@@ -242,6 +242,7 @@ body {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
+  align-items: center;
 }
 
 .badge {
@@ -265,16 +266,22 @@ body {
 }
 
 .badge-static {
-  background: rgba(255, 255, 255, 0.04);
+  background: transparent;
   color: var(--text-muted);
-  border: 1px dashed var(--border-soft);
+  border: none;
+  padding: 0;
+  font-size: 0.85rem;
+  font-style: italic;
   cursor: default;
 }
 
 .badge-published {
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--text-main);
-  border: 1px solid rgba(217, 166, 184, 0.35);
+  background: transparent;
+  color: var(--accent);
+  border: none;
+  padding: 0;
+  font-size: 0.85rem;
+  font-style: italic;
   cursor: default;
 }
 
