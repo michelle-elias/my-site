@@ -1,6 +1,6 @@
 # Personal Website
 
-My personal website showcasing my research in systems biology, systems medicine, and computational pharmacology.
+My personal portfolio-website showcasing my work and research in systems biology, systems medicine, and computational pharmacology.
 
 ## About
 
