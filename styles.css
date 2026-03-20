@@ -9,7 +9,7 @@
   --accent: #d9a6b8;
   --accent-soft: #8f7b8d;
 
-  --border-soft: rgba(255, 255, 255, 0.08);
+  --border-soft: rgba(217, 166, 184, 0.15);
 }
 
 /* Light mode overrides */
@@ -23,7 +23,7 @@ html[data-theme="light"] {
   --accent: #1c1822;
   --accent-soft: #c98aa0;
 
-  --border-soft: rgba(0, 0, 0, 0.18);
+  --border-soft: rgba(217, 166, 184, 0.5);
 }
 
 html:not([data-theme="light"]) body {
@@ -233,7 +233,7 @@ body {
 }
 
 .pub.submitted {
-  border: 1.5px dashed rgba(217, 166, 184, 0.3);
+  border: 1.5px dashed var(--border-soft);
 }
 
 /* ---- Badges ---- */
@@ -295,6 +295,7 @@ body {
   flex-direction: column;
   gap: 8px;
   align-items: center;
+  text-align: center;
 }
 
 .muted {
