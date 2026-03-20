@@ -233,7 +233,7 @@ body {
 }
 
 .pub.submitted {
-  border-style: dashed;
+  border: 1.5px dashed rgba(217, 166, 184, 0.3);
 }
 
 /* ---- Badges ---- */
@@ -319,3 +319,27 @@ body {
 .text-link:visited {
   color: inherit;
 }
+
+/* ---- Publications subsection headings ---- */
+.pub-subheading {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.95rem;
+  font-style:normal;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  margin: 28px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border-soft);
+  max-width: 820px;
+}
+
+.pub-subheading:first-of-type {
+  margin-top: 0;
+}
+
+/* ---- Featured glimepiride highlight ---- */
+.pub.glimepiride {
+  border-color: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  box-shadow: -2px 0 18px rgba(217, 166, 184, 0.08), 0 0 0 1px rgba(217, 166, 184, 0.1);
+    }

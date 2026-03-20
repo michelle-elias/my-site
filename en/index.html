@@ -4,17 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Michelle Elias</title>
-
   <link rel="stylesheet" href="/styles.css" />
-</head>
-
 <body>
 
 <div class="top-controls">
   <a class="control-btn" href="/de/" aria-label="Switch to German">DE</a>
   <button class="control-btn" type="button" aria-label="Toggle theme">☾</button>
 </div>
-
 
 <script>
   const root = document.documentElement;
@@ -39,19 +35,15 @@
   });
 </script>
 
-
   <div class="container">
 
     <header class="header">
       <h1 class="name">Michelle Elias</h1>
-
       <h2 class="portfolio">Portfolio</h2>
-
       <p class="subtitle">
         M.Sc. Biophysics Student at Humboldt University of Berlin <br />
         Systems Biology | Systems Medicine | Computational Pharmacology
       </p>
-
       <nav class="links">
         <a class="btn" href="/assets/CV.pdf" target="_blank" rel="noopener">CV</a>
         <a class="btn" href="https://scholar.google.com/citations?user=TX6Or1MAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
@@ -68,7 +60,15 @@
         <h2 class="section-title">About</h2>
         <ul class="text">
           <li>M.Sc. student in Biophysics at Humboldt University of Berlin</li>
-          <li>Working as student assistant in the research group of Dr. Matthias König</li>
+          <li>Working as student assistant in the research group of 
+            <a class="text-link"
+              href="https://livermetabolism.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Systems Medicine & Biology for Advanced Drug Metabolism and Liver Studies">
+              Dr. Matthias König
+            </a>
+          </li>
           <li>Focus on systems biology, systems medicine, and computational pharmacology</li>
           <li>Research interests include PBPK modeling and digital twins</li>
           <li>Development of reproducible model pipelines for model-informed precision dosing</li>
@@ -79,7 +79,7 @@
               target="_blank"
               rel="noopener noreferrer"
               title="Robust coupling of continuum-biomechanical in silico models to establish active biological system models for later use in clinical applications – Co-design of modeling, numerics and usability">
-              DFG SPP 2311: 
+              DFG SPP 2311:
             </a>
             SPP-FEMVis web platform for FEM simulation visualization.
           </li>
@@ -91,39 +91,80 @@
 
         <div class="pub-list">
 
-          <article class="pub submitted">
-            <div class="pub-title">Reproducibility of a Digital Twin of Empagliflozin Pharmacokinetics and Pharmacodynamics</div>
-            <div class="pub-meta">Elias M, Myshkina M, Alejandro J, Babaeva M, and König M · Physiome, 2026 · First Author</div>
+          <!-- ── Featured ── -->
+          <h3 class="pub-subheading">Featured</h3>
+
+          <article class="pub glimepiride">
+            <div class="pub-title">A digital twin of glimepiride for personalized and stratified diabetes treatment</div>
+            <div class="pub-meta">Elias M and König M · Frontiers in Pharmacology, 2025 · First Author</div>
             <div class="badges">
-                <span class="badge badge-static">Submitted</span>
-              <a class="badge" href="https://github.com/matthiaskoenig/empagliflozin-model/" target="_blank" rel="noopener">Code</a>
+              <span class="badge badge-published">Published</span>
+              <a class="badge" href="https://doi.org/10.3389/fphar.2025.1686415" target="_blank" rel="noopener">DOI</a>
+              <a class="badge" href="https://doi.org/10.20944/preprints202506.1264.v1" target="_blank" rel="noopener">Preprint</a>
+              <a class="badge" href="https://github.com/matthiaskoenig/glimepiride-model/" target="_blank" rel="noopener">Code</a>
+              <a class="badge" href="https://glimepiride.de/" target="_blank" rel="noopener">Web App</a>
             </div>
           </article>
 
-          <article class="pub submitted">
-            <div class="pub-title">A Digital Twin of Empagliflozin Pharmacokinetics and Pharmacodynamics</div>
-            <div class="pub-meta">Alejandro J, Elias M, Babaeva M, and König M · Preprints, 2026 · Co-Author</div>
+          <article class="pub glimepiride">
+            <div class="pub-title">Reproducibility of a Digital Twin of Glimepiride for Personalized and Stratified Diabetes Treatment</div>
+            <div class="pub-meta">Elias M and König M · Physiome, 2025 · First Author</div>
             <div class="badges">
-                <span class="badge badge-static">Submitted</span>
-              <a class="badge" href="https://doi.org/10.20944/preprints202603.1559.v1" target="_blank" rel="noopener">Preprint</a>
+              <span class="badge badge-published">Published</span>
+              <a class="badge" href="https://doi.org/10.36903/physiome.28379193" target="_blank" rel="noopener">DOI</a>
+              <a class="badge" href="https://github.com/matthiaskoenig/glimepiride-model/" target="_blank" rel="noopener">Code</a>
+            </div>
+          </article>
+
+          <!-- ── First Author ── -->
+          <h3 class="pub-subheading">First Author</h3>
+
+          <article class="pub submitted">
+            <div class="pub-title">Reproducibility of a Digital Twin of Empagliflozin Pharmacokinetics and Pharmacodynamics</div>
+            <div class="pub-meta">Elias M, Myshkina M, Alejandro J, Babaeva M, and König M · Physiome, 2026</div>
+            <div class="badges">
+              <span class="badge badge-static">Submitted</span>
               <a class="badge" href="https://github.com/matthiaskoenig/empagliflozin-model/" target="_blank" rel="noopener">Code</a>
             </div>
           </article>
 
           <article class="pub submitted">
             <div class="pub-title">Reproducibility of a Digital Twin of Canagliflozin Pharmacokinetics and Pharmacodynamics in Type 2 Diabetes Mellitus</div>
-            <div class="pub-meta">Elias M, Myshkina M, Tereshchuk V, and König M · Physiome, 2026 · First Author</div>
+            <div class="pub-meta">Elias M, Myshkina M, Tereshchuk V, and König M · Physiome, 2026</div>
             <div class="badges">
-                <span class="badge badge-static">Submitted</span>
+              <span class="badge badge-static">Submitted</span>
               <a class="badge" href="https://github.com/matthiaskoenig/canagliflozin-model/" target="_blank" rel="noopener">Code</a>
+            </div>
+          </article>
+
+          <article class="pub">
+            <div class="pub-title">Reproducibility of a Physiologically Based Pharmacokinetic and Pharmacodynamic (PBPK/PD) Model of Dapagliflozin</div>
+            <div class="pub-meta">Elias M, Myshkina M, Nemitz N, and König M · Physiome, 2026</div>
+            <div class="badges">
+              <span class="badge badge-static">Accepted</span>
+              <a class="badge" href="https://doi.org/10.36903/physiome.31368556" target="_blank" rel="noopener">DOI</a>
+              <a class="badge" href="https://github.com/matthiaskoenig/dapagliflozin-model/" target="_blank" rel="noopener">Code</a>
+            </div>
+          </article>
+
+          <!-- ── Co-Author ── -->
+          <h3 class="pub-subheading">Co-Author</h3>
+
+          <article class="pub submitted">
+            <div class="pub-title">A Digital Twin of Empagliflozin Pharmacokinetics and Pharmacodynamics</div>
+            <div class="pub-meta">Alejandro J, Elias M, Babaeva M, and König M · Preprints, 2026</div>
+            <div class="badges">
+              <span class="badge badge-static">Submitted</span>
+              <a class="badge" href="https://www.preprints.org/manuscript/202603.1559/v1" target="_blank" rel="noopener">Preprint</a>
+              <a class="badge" href="https://github.com/matthiaskoenig/empagliflozin-model/" target="_blank" rel="noopener">Code</a>
             </div>
           </article>
 
           <article class="pub submitted">
             <div class="pub-title">A Digital Twin of Canagliflozin Pharmacokinetics and Pharmacodynamics in Type 2 Diabetes Mellitus</div>
-            <div class="pub-meta">Tereshchuk V, Elias M, and König M · Preprints, 2026 · Co-Author</div>
+            <div class="pub-meta">Tereshchuk V, Elias M, and König M · Preprints, 2026</div>
             <div class="badges">
-                <span class="badge badge-static">Submitted</span>
+              <span class="badge badge-static">Submitted</span>
               <a class="badge" href="https://www.preprints.org/manuscript/202601.2095" target="_blank" rel="noopener">Preprint</a>
               <a class="badge" href="https://github.com/matthiaskoenig/canagliflozin-model/" target="_blank" rel="noopener">Code</a>
             </div>
@@ -132,8 +173,8 @@
           <article class="pub submitted">
             <div class="pub-title">Rivaroxaban Pharmacokinetics and Coagulation Effects: Reproducibility of a Physiologically Based Modeling Approach</div>
             <div class="pub-meta">Myshkina M, Elias M, Casabianca E, and König M · Physiome, 2026 · Second Author</div>
-            <div class="badges"> 
-                <span class="badge badge-static">Submitted</span>
+            <div class="badges">
+              <span class="badge badge-static">Submitted</span>
               <a class="badge" href="https://github.com/matthiaskoenig/rivaroxaban-model/" target="_blank" rel="noopener">Code</a>
             </div>
           </article>
@@ -142,52 +183,20 @@
             <div class="pub-title">Reproducibility of a Digital Twin of the Angiotensin II Receptor Blocker Losartan</div>
             <div class="pub-meta">Myshkina M, Elias M, Tensil E, and König M · Physiome, 2026 · Second Author</div>
             <div class="badges">
-                <span class="badge badge-static">Accepted</span>
+              <span class="badge badge-static">Accepted</span>
               <a class="badge" href="https://doi.org/10.36903/physiome.31359823" target="_blank" rel="noopener">DOI</a>
               <a class="badge" href="https://github.com/matthiaskoenig/losartan-model/" target="_blank" rel="noopener">Code</a>
             </div>
           </article>
 
           <article class="pub">
-            <div class="pub-title">Reproducibility of a Physiologically Based Pharmacokinetic and Pharmacodynamic (PBPK/PD) Model of Dapagliflozin</div>
-            <div class="pub-meta">Elias M, Myshkina M, Nemitz N, and König M · Physiome, 2026 · First Author</div>
-            <div class="badges">
-                <span class="badge badge-static">Accepted</span>
-              <a class="badge" href="https://doi.org/10.36903/physiome.31368556" target="_blank" rel="noopener">DOI</a>
-              <a class="badge" href="https://github.com/matthiaskoenig/dapagliflozin-model/" target="_blank" rel="noopener">Code</a>
-            </div>
-          </article>
-
-          <article class="pub">
             <div class="pub-title">A Physiologically Based Pharmacokinetic and Pharmacodynamic (PBPK/PD) Model of Dapagliflozin in Type 2 Diabetes Mellitus: The Effect of Dosing, Hepatorenal Impairment, and Food</div>
-            <div class="pub-meta">Nemitz N, Elias M, and König M · Pharmaceutics, 2026 · Co-Author</div>
+            <div class="pub-meta">Nemitz N, Elias M, and König M · Pharmaceutics, 2026</div>
             <div class="badges">
-                <span class="badge badge-published">Published</span>
+              <span class="badge badge-published">Published</span>
               <a class="badge" href="https://doi.org/10.3390/pharmaceutics18030287" target="_blank" rel="noopener">DOI</a>
               <a class="badge" href="https://doi.org/10.20944/preprints202511.0981.v1" target="_blank" rel="noopener">Preprint</a>
               <a class="badge" href="https://github.com/matthiaskoenig/dapagliflozin-model/" target="_blank" rel="noopener">Code</a>
-            </div>
-          </article>
-
-          <article class="pub">
-            <div class="pub-title">Reproducibility of a Digital Twin of Glimepiride for Personalized and Stratified Diabetes Treatment</div>
-            <div class="pub-meta">Elias M and König M · Physiome, 2025 · First Author</div>
-            <div class="badges">
-                  <span class="badge badge-published">Published</span>
-              <a class="badge" href="https://doi.org/10.36903/physiome.28379193" target="_blank" rel="noopener">DOI</a>
-              <a class="badge" href="https://github.com/matthiaskoenig/glimepiride-model/" target="_blank" rel="noopener">Code</a>
-            </div>
-          </article>
-
-          <article class="pub">
-            <div class="pub-title">A digital twin of glimepiride for personalized and stratified diabetes treatment</div>
-            <div class="pub-meta">Elias M and König M · Frontiers in Pharmacology, 2025 · First Author</div>
-            <div class="badges">
-                  <span class="badge badge-published">Published</span>
-              <a class="badge" href="https://doi.org/10.3389/fphar.2025.1686415" target="_blank" rel="noopener">DOI</a>
-              <a class="badge" href="https://doi.org/10.20944/preprints202506.1264.v1" target="_blank" rel="noopener">Preprint</a>
-              <a class="badge" href="https://github.com/matthiaskoenig/glimepiride-model/" target="_blank" rel="noopener">Code</a>
-              <a class="badge" href="https://glimepiride.de/" target="_blank" rel="noopener">Web App</a>
             </div>
           </article>
 
@@ -201,33 +210,27 @@
             <div class="pub-title">
               A physiological-based pharmacokinetic (PBPK) model of the sulfonylurea glimepiride
             </div>
-
             <div class="pub-meta">
-              Bachelor’s Thesis · B.Sc. Biology · Systems Medicine of the Liver · Humboldt University of Berlin · 2025
+              Bachelor's Thesis · B.Sc. Biology · Systems Medicine of the Liver · Humboldt University of Berlin · 2025
             </div>
-
             <p class="pub-desc">
               Development of a whole-body PBPK model of glimepiride based on curated clinical data,
-              investigating pharmacokinetic variability due to renal and hepatic impairment, bodyweight and 
+              investigating pharmacokinetic variability due to renal and hepatic impairment, bodyweight and
               CYP2C9 genetic variants.
             </p>
-
             <div class="badges">
-              <span class="badge badge-published">Bachelor’s Thesis</span>
-              <a class="badge" href="/assets/Bachelor.Thesis.Michelle.Elias.pdf" target="_blank" rel="noopener">
-                PDF
-              </a>
+              <span class="badge badge-published">Bachelor's Thesis</span>
+              <a class="badge" href="/assets/Bachelor.Thesis.Michelle.Elias.pdf" target="_blank" rel="noopener">PDF</a>
             </div>
           </article>
         </div>
       </section>
 
-
     </main>
 
     <footer class="footer">
-    <div>📍 Berlin · Systems Biology | Systems Medicine | Computational Pharmacology</div>
-    <time class="muted" datetime="2026-03-17">Last updated 17 March 2026</time>
+      <div>📍 Berlin · Systems Biology | Systems Medicine | Computational Pharmacology</div>
+      <time class="muted" datetime="2026-03-20">Last updated 20 March 2026</time>
     </footer>
 
   </div>
