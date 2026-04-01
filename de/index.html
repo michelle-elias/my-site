@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="/styles.css" />
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
 </head>
-
 <body>
 
 <div class="top-controls">
@@ -15,26 +14,87 @@
   <button class="control-btn" type="button" aria-label="Toggle theme">☾</button>
 </div>
 
+<!-- Sticky side TOC (desktop) -->
+<nav class="side-toc" aria-label="Seitenabschnitte">
+  <a class="toc-link" href="#about">Über mich</a>
+  <a class="toc-link" href="#projects">Projekte</a>
+  <a class="toc-link" href="#publications">Publikationen</a>
+  <a class="toc-link" href="#thesis">Abschlussarbeiten</a>
+</nav>
+
+<!-- Sticky horizontal TOC (mobile) -->
+<nav class="mobile-toc" aria-label="Seitenabschnitte">
+  <a class="mobile-toc-link" href="#about">Über mich</a>
+  <a class="mobile-toc-link" href="#projects">Projekte</a>
+  <a class="mobile-toc-link" href="#publications">Publikationen</a>
+  <a class="mobile-toc-link" href="#thesis">Abschlussarbeiten</a>
+  <div class="mobile-toc-spacer"></div>
+  <a class="mobile-toc-control" href="/en/" aria-label="Switch to English">EN</a>
+  <button class="mobile-toc-control mobile-theme-btn" type="button" aria-label="Toggle theme">☾</button>
+</nav>
+
 <script>
   const root = document.documentElement;
   const btn = document.querySelector(".control-btn[type='button']");
+  const mobileBtn = document.querySelector(".mobile-theme-btn");
 
   const saved = localStorage.getItem("theme");
   if (saved) root.setAttribute("data-theme", saved);
 
   function updateIcon() {
     const isLight = root.getAttribute("data-theme") === "light";
-    btn.textContent = isLight ? "☼" : "☾";
+    const icon = isLight ? "☼" : "☾";
+    btn.textContent = icon;
+    if (mobileBtn) mobileBtn.textContent = icon;
   }
 
   updateIcon();
 
-  btn.addEventListener("click", () => {
+  function toggleTheme() {
     const current = root.getAttribute("data-theme");
     const next = current === "light" ? "dark" : "light";
     root.setAttribute("data-theme", next);
     localStorage.setItem("theme", next);
     updateIcon();
+  }
+
+  btn.addEventListener("click", toggleTheme);
+  if (mobileBtn) mobileBtn.addEventListener("click", toggleTheme);
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const tocLinks = document.querySelectorAll(".toc-link");
+    const mobileTocLinks = document.querySelectorAll(".mobile-toc-link");
+    const sections = document.querySelectorAll("section[id]");
+
+    function updateActive() {
+      const atBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 10;
+
+      let currentId;
+      if (atBottom) {
+        currentId = sections[sections.length - 1].id;
+      } else {
+        currentId = sections[0].id;
+        sections.forEach(s => {
+          if (s.getBoundingClientRect().top <= window.innerHeight * 0.5) {
+            currentId = s.id;
+          }
+        });
+      }
+
+      tocLinks.forEach(l => l.classList.remove("toc-active"));
+      const activeDesktop = document.querySelector(`.toc-link[href="#${currentId}"]`);
+      if (activeDesktop) activeDesktop.classList.add("toc-active");
+
+      mobileTocLinks.forEach(l => l.classList.remove("toc-active"));
+      const activeMobile = document.querySelector(`.mobile-toc-link[href="#${currentId}"]`);
+      if (activeMobile) {
+        activeMobile.classList.add("toc-active");
+        activeMobile.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
+      }
+    }
+
+    window.addEventListener("scroll", updateActive, { passive: true });
+    updateActive();
   });
 </script>
 
@@ -86,10 +146,8 @@
             </a>
             :
             <a class="text-link"
-              href="https://github.com/matthiaskoenig/visfem"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="VisFEM: Web platform for FEM simulation visualization">
+              href="#projects"
+              title="VisFEM: Webplattform zur Visualisierung von FEM-Simulationen">
               VisFEM
             </a>
             Webplattform zur Visualisierung von FEM-Simulationen.
@@ -97,17 +155,68 @@
         </ul>
       </section>
 
+      <!-- ── Projekte ── -->
+      <section class="section" id="projects">
+        <h2 class="section-title">Projekte</h2>
+        <div class="pub-list">
+
+          <article class="pub glimepiride">
+            <div class="pub-title">VisFEM: Webvisualisierung von FEM-Modellen</div>
+            <div class="pub-meta">Elias M und König M · 2026</div>
+            <p class="pub-desc">
+              Ein interaktives webbasiertes Werkzeug zur Visualisierung von Finite-Elemente-Methode (FEM)
+              Simulationsergebnissen mit Fokus auf biomedizinische Anwendungen. Entwickelt im Rahmen von
+              DFG SPP 2311 und als Open-Source-Python-Paket über PyPI verfügbar.
+            </p>
+            <div class="badges">
+              <a class="badge" href="https://github.com/matthiaskoenig/visfem" target="_blank" rel="noopener">GitHub</a>
+              <a class="badge" href="https://doi.org/10.5281/zenodo.19220183" target="_blank" rel="noopener">DOI</a>
+              <a class="badge" href="https://pypi.org/project/visfem/" target="_blank" rel="noopener">PyPI</a>
+            </div>
+          </article>
+
+          <article class="pub">
+            <div class="pub-title">Glimepirid Digitaler Zwilling – Webanwendung</div>
+            <div class="pub-meta">Elias M und König M · 2024–2025</div>
+            <p class="pub-desc">
+              Interaktive Webanwendung, die den digitalen Zwilling von Glimepirid für eine personalisierte
+              und stratifizierte Diabetesbehandlung implementiert, gebaut mit Marimo und via Docker
+              deploybar. Begleitet das Glimepirid-PBPK/PD-Modell und die zugehörige Publikation in
+              Frontiers in Pharmacology.
+            </p>
+            <div class="badges">
+              <a class="badge" href="https://glimepiride.de/" target="_blank" rel="noopener">Web App</a>
+              <a class="badge" href="https://github.com/matthiaskoenig/glimepiride-app" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </article>
+
+          <article class="pub">
+            <div class="pub-title">Glimepirid PBPK-Modell</div>
+            <div class="pub-meta">Elias M und König M · 2024–2025</div>
+            <p class="pub-desc">
+              Physiologisch-basiertes pharmakokinetisches (PBPK) Modell von Glimepirid im SBML-Format,
+              einschließlich Leber-, Nieren-, Darm- und Ganzkörper-Teilmodellen. Begleitet von einem
+              COMBINE-Archiv, FAIR-Bewertung und reproduzierbarer Simulations-Pipeline.
+            </p>
+            <div class="badges">
+              <a class="badge" href="https://github.com/matthiaskoenig/glimepiride-model" target="_blank" rel="noopener">GitHub</a>
+              <a class="badge" href="https://doi.org/10.5281/zenodo.14628700" target="_blank" rel="noopener">DOI</a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
       <section class="section" id="publications">
         <h2 class="section-title">Publikationen</h2>
 
         <div class="pub-list">
 
-          <!-- ── Hervorgehoben ── -->
           <h3 class="pub-subheading">Hervorgehoben</h3>
 
           <article class="pub glimepiride">
             <div class="pub-title">A digital twin of glimepiride for personalized and stratified diabetes treatment</div>
-            <div class="pub-meta">Elias M and König M · Frontiers in Pharmacology, 2025 · Erstautor</div>
+            <div class="pub-meta">Elias M und König M · Frontiers in Pharmacology, 2025 · Erstautor</div>
             <div class="badges">
               <span class="badge badge-published">Publiziert</span>
               <a class="badge" href="https://doi.org/10.3389/fphar.2025.1686415" target="_blank" rel="noopener">DOI</a>
@@ -119,7 +228,7 @@
 
           <article class="pub glimepiride">
             <div class="pub-title">Reproducibility of a Digital Twin of Glimepiride for Personalized and Stratified Diabetes Treatment</div>
-            <div class="pub-meta">Elias M and König M · Physiome, 2025 · Erstautor</div>
+            <div class="pub-meta">Elias M und König M · Physiome, 2025 · Erstautor</div>
             <div class="badges">
               <span class="badge badge-published">Publiziert</span>
               <a class="badge" href="https://doi.org/10.36903/physiome.28379193" target="_blank" rel="noopener">DOI</a>
@@ -127,12 +236,11 @@
             </div>
           </article>
 
-          <!-- ── Erstautor ── -->
           <h3 class="pub-subheading">Erstautor</h3>
 
           <article class="pub submitted">
             <div class="pub-title">Reproducibility of a Digital Twin of Empagliflozin Pharmacokinetics and Pharmacodynamics</div>
-            <div class="pub-meta">Elias M, Myshkina M, Alejandro J, Babaeva M, and König M · Physiome, 2026</div>
+            <div class="pub-meta">Elias M, Myshkina M, Alejandro J, Babaeva M, und König M · Physiome, 2026</div>
             <div class="badges">
               <span class="badge badge-static">Eingereicht</span>
               <a class="badge" href="https://github.com/matthiaskoenig/empagliflozin-model/" target="_blank" rel="noopener">Code</a>
@@ -141,7 +249,7 @@
 
           <article class="pub submitted">
             <div class="pub-title">Reproducibility of a Digital Twin of Canagliflozin Pharmacokinetics and Pharmacodynamics in Type 2 Diabetes Mellitus</div>
-            <div class="pub-meta">Elias M, Myshkina M, Tereshchuk V, and König M · Physiome, 2026</div>
+            <div class="pub-meta">Elias M, Myshkina M, Tereshchuk V, und König M · Physiome, 2026</div>
             <div class="badges">
               <span class="badge badge-static">Eingereicht</span>
               <a class="badge" href="https://github.com/matthiaskoenig/canagliflozin-model/" target="_blank" rel="noopener">Code</a>
@@ -150,7 +258,7 @@
 
           <article class="pub">
             <div class="pub-title">Reproducibility of a Physiologically Based Pharmacokinetic and Pharmacodynamic (PBPK/PD) Model of Dapagliflozin</div>
-            <div class="pub-meta">Elias M, Myshkina M, Nemitz N, and König M · Physiome, 2026</div>
+            <div class="pub-meta">Elias M, Myshkina M, Nemitz N, und König M · Physiome, 2026</div>
             <div class="badges">
               <span class="badge badge-static">Angenommen</span>
               <a class="badge" href="https://doi.org/10.36903/physiome.31368556" target="_blank" rel="noopener">DOI</a>
@@ -158,12 +266,11 @@
             </div>
           </article>
 
-          <!-- ── Co-Autor ── -->
           <h3 class="pub-subheading">Co-Autor</h3>
 
           <article class="pub submitted">
             <div class="pub-title">A Digital Twin of Empagliflozin Pharmacokinetics and Pharmacodynamics</div>
-            <div class="pub-meta">Alejandro J, Elias M, Babaeva M, and König M · Preprints, 2026</div>
+            <div class="pub-meta">Alejandro J, Elias M, Babaeva M, und König M · Preprints, 2026</div>
             <div class="badges">
               <span class="badge badge-static">Eingereicht</span>
               <a class="badge" href="https://www.preprints.org/manuscript/202603.1559/v1" target="_blank" rel="noopener">Preprint</a>
@@ -173,7 +280,7 @@
 
           <article class="pub submitted">
             <div class="pub-title">A Digital Twin of Canagliflozin Pharmacokinetics and Pharmacodynamics in Type 2 Diabetes Mellitus</div>
-            <div class="pub-meta">Tereshchuk V, Elias M, and König M · Preprints, 2026</div>
+            <div class="pub-meta">Tereshchuk V, Elias M, und König M · Preprints, 2026</div>
             <div class="badges">
               <span class="badge badge-static">Eingereicht</span>
               <a class="badge" href="https://www.preprints.org/manuscript/202601.2095" target="_blank" rel="noopener">Preprint</a>
@@ -183,7 +290,7 @@
 
           <article class="pub submitted">
             <div class="pub-title">Rivaroxaban Pharmacokinetics and Coagulation Effects: Reproducibility of a Physiologically Based Modeling Approach</div>
-            <div class="pub-meta">Myshkina M, Elias M, Casabianca E, and König M · Physiome, 2026 · Zweitautor</div>
+            <div class="pub-meta">Myshkina M, Elias M, Casabianca E, und König M · Physiome, 2026 · Zweitautor</div>
             <div class="badges">
               <span class="badge badge-static">Eingereicht</span>
               <a class="badge" href="https://github.com/matthiaskoenig/rivaroxaban-model/" target="_blank" rel="noopener">Code</a>
@@ -192,7 +299,7 @@
 
           <article class="pub">
             <div class="pub-title">Reproducibility of a Digital Twin of the Angiotensin II Receptor Blocker Losartan</div>
-            <div class="pub-meta">Myshkina M, Elias M, Tensil E, and König M · Physiome, 2026 · Zweitautor</div>
+            <div class="pub-meta">Myshkina M, Elias M, Tensil E, und König M · Physiome, 2026 · Zweitautor</div>
             <div class="badges">
               <span class="badge badge-static">Angenommen</span>
               <a class="badge" href="https://doi.org/10.36903/physiome.31359823" target="_blank" rel="noopener">DOI</a>
@@ -202,7 +309,7 @@
 
           <article class="pub">
             <div class="pub-title">A Physiologically Based Pharmacokinetic and Pharmacodynamic (PBPK/PD) Model of Dapagliflozin in Type 2 Diabetes Mellitus: The Effect of Dosing, Hepatorenal Impairment, and Food</div>
-            <div class="pub-meta">Nemitz N, Elias M, and König M · Pharmaceutics, 2026</div>
+            <div class="pub-meta">Nemitz N, Elias M, und König M · Pharmaceutics, 2026</div>
             <div class="badges">
               <span class="badge badge-published">Publiziert</span>
               <a class="badge" href="https://doi.org/10.3390/pharmaceutics18030287" target="_blank" rel="noopener">DOI</a>
@@ -241,7 +348,7 @@
 
     <footer class="footer">
       <span>📍 Berlin · Systembiologie | Systemmedizin | Computergestützte Pharmakologie</span>
-      <time class="muted" datetime="2026-03-205">Zuletzt aktualisiert: 25. März 2026</time>
+      <time class="muted" datetime="2026-04-01">Zuletzt aktualisiert: 1. April 2026</time>
     </footer>
 
   </div>

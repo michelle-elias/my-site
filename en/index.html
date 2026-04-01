@@ -14,26 +14,89 @@
   <button class="control-btn" type="button" aria-label="Toggle theme">☾</button>
 </div>
 
+<!-- Sticky side TOC (desktop) -->
+<nav class="side-toc" aria-label="Page sections">
+  <a class="toc-link" href="#about">About</a>
+  <a class="toc-link" href="#projects">Projects</a>
+  <a class="toc-link" href="#publications">Publications</a>
+  <a class="toc-link" href="#thesis">Thesis</a>
+</nav>
+
+<!-- Sticky horizontal TOC (mobile) -->
+<nav class="mobile-toc" aria-label="Page sections">
+  <a class="mobile-toc-link" href="#about">About</a>
+  <a class="mobile-toc-link" href="#projects">Projects</a>
+  <a class="mobile-toc-link" href="#publications">Publications</a>
+  <a class="mobile-toc-link" href="#thesis">Thesis</a>
+  <div class="mobile-toc-spacer"></div>
+  <a class="mobile-toc-control" href="/de/" aria-label="Switch to German">DE</a>
+  <button class="mobile-toc-control mobile-theme-btn" type="button" aria-label="Toggle theme">☾</button>
+</nav>
+
 <script>
   const root = document.documentElement;
   const btn = document.querySelector(".control-btn[type='button']");
+  const mobileBtn = document.querySelector(".mobile-theme-btn");
 
   const saved = localStorage.getItem("theme");
   if (saved) root.setAttribute("data-theme", saved);
 
   function updateIcon() {
     const isLight = root.getAttribute("data-theme") === "light";
-    btn.textContent = isLight ? "☼" : "☾";
+    const icon = isLight ? "☼" : "☾";
+    btn.textContent = icon;
+    if (mobileBtn) mobileBtn.textContent = icon;
   }
 
   updateIcon();
 
-  btn.addEventListener("click", () => {
+  function toggleTheme() {
     const current = root.getAttribute("data-theme");
     const next = current === "light" ? "dark" : "light";
     root.setAttribute("data-theme", next);
     localStorage.setItem("theme", next);
     updateIcon();
+  }
+
+  btn.addEventListener("click", toggleTheme);
+  if (mobileBtn) mobileBtn.addEventListener("click", toggleTheme);
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const tocLinks = document.querySelectorAll(".toc-link");
+    const mobileTocLinks = document.querySelectorAll(".mobile-toc-link");
+    const sections = document.querySelectorAll("section[id]");
+
+    function updateActive() {
+      const atBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 10;
+
+      let currentId;
+      if (atBottom) {
+        currentId = sections[sections.length - 1].id;
+      } else {
+        currentId = sections[0].id;
+        sections.forEach(s => {
+          if (s.getBoundingClientRect().top <= window.innerHeight * 0.5) {
+            currentId = s.id;
+          }
+        });
+      }
+
+      // Update desktop TOC
+      tocLinks.forEach(l => l.classList.remove("toc-active"));
+      const activeDesktop = document.querySelector(`.toc-link[href="#${currentId}"]`);
+      if (activeDesktop) activeDesktop.classList.add("toc-active");
+
+      // Update mobile TOC and scroll active pill into view
+      mobileTocLinks.forEach(l => l.classList.remove("toc-active"));
+      const activeMobile = document.querySelector(`.mobile-toc-link[href="#${currentId}"]`);
+      if (activeMobile) {
+        activeMobile.classList.add("toc-active");
+        activeMobile.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
+      }
+    }
+
+    window.addEventListener("scroll", updateActive, { passive: true });
+    updateActive();
   });
 </script>
 
@@ -62,7 +125,7 @@
         <h2 class="section-title">About</h2>
         <ul class="text">
           <li>M.Sc. student in Biophysics at Humboldt University of Berlin</li>
-          <li>Working as student assistant in the research group of 
+          <li>Working as student assistant in the research group of
             <a class="text-link"
               href="https://livermetabolism.com/"
               target="_blank"
@@ -85,9 +148,7 @@
             </a>
             :
             <a class="text-link"
-              href="https://github.com/matthiaskoenig/visfem"
-              target="_blank"
-              rel="noopener noreferrer"
+              href="#projects"
               title="VisFEM: Web platform for FEM simulation visualization">
               VisFEM
             </a>
@@ -96,12 +157,63 @@
         </ul>
       </section>
 
+      <!-- ── Projects ── -->
+      <section class="section" id="projects">
+        <h2 class="section-title">Projects</h2>
+        <div class="pub-list">
+
+          <article class="pub glimepiride">
+            <div class="pub-title">VisFEM: Web Visualization of FEM Models</div>
+            <div class="pub-meta">Elias M and König M · 2026</div>
+            <p class="pub-desc">
+              An interactive web-based tool for visualization of Finite Element Method (FEM)
+              simulation results, with a focus on biomedical applications. Developed as part of
+              DFG SPP 2311 and installable as an open-source Python package via PyPI.
+            </p>
+            <div class="badges">
+              <a class="badge" href="https://github.com/matthiaskoenig/visfem" target="_blank" rel="noopener">GitHub</a>
+              <a class="badge" href="https://doi.org/10.5281/zenodo.19220183" target="_blank" rel="noopener">DOI</a>
+              <a class="badge" href="https://pypi.org/project/visfem/" target="_blank" rel="noopener">PyPI</a>
+            </div>
+          </article>
+
+          <article class="pub">
+            <div class="pub-title">Glimepiride Digital Twin Web Application</div>
+            <div class="pub-meta">Elias M and König M · 2024–2025</div>
+            <p class="pub-desc">
+              Interactive web application implementing the glimepiride digital twin for personalized
+              and stratified diabetes treatment, built with Marimo and deployable via Docker.
+              Accompanies the glimepiride PBPK/PD model and the corresponding publication in
+              Frontiers in Pharmacology.
+            </p>
+            <div class="badges">
+              <a class="badge" href="https://glimepiride.de/" target="_blank" rel="noopener">Web App</a>
+              <a class="badge" href="https://github.com/matthiaskoenig/glimepiride-app" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </article>
+
+          <article class="pub">
+            <div class="pub-title">Glimepiride PBPK Model</div>
+            <div class="pub-meta">Elias M and König M · 2024–2025</div>
+            <p class="pub-desc">
+              Physiologically based pharmacokinetic (PBPK) model of glimepiride distributed in
+              SBML format, including liver, kidney, intestine, and whole-body submodels. Accompanied
+              by a COMBINE archive, FAIR assessment, and reproducible simulation pipeline.
+            </p>
+            <div class="badges">
+              <a class="badge" href="https://github.com/matthiaskoenig/glimepiride-model" target="_blank" rel="noopener">GitHub</a>
+              <a class="badge" href="https://doi.org/10.5281/zenodo.14628700" target="_blank" rel="noopener">DOI</a>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
       <section class="section" id="publications">
         <h2 class="section-title">Publications</h2>
 
         <div class="pub-list">
 
-          <!-- ── Featured ── -->
           <h3 class="pub-subheading">Featured</h3>
 
           <article class="pub glimepiride">
@@ -126,7 +238,6 @@
             </div>
           </article>
 
-          <!-- ── First Author ── -->
           <h3 class="pub-subheading">First Author</h3>
 
           <article class="pub submitted">
@@ -157,7 +268,6 @@
             </div>
           </article>
 
-          <!-- ── Co-Author ── -->
           <h3 class="pub-subheading">Co-Author</h3>
 
           <article class="pub submitted">
@@ -240,7 +350,7 @@
 
     <footer class="footer">
       <span>📍 Berlin · Systems Biology | Systems Medicine | Computational Pharmacology</span>
-      <time class="muted" datetime="2026-03-25">Last updated: 25 March 2026</time>
+      <time class="muted" datetime="2026-04-01">Last updated: 1 April 2026</time>
     </footer>
 
   </div>
