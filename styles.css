@@ -181,7 +181,48 @@ body {
 }
 
 
-/* ---- 9. Cards (projects, publications, thesis) ---- */
+/* ---- 9. Core Tech Stack banner ---- */
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  max-width: 820px;
+}
+
+.stack-pill {
+  font-size: 0.78rem;
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: rgba(217, 166, 184, 0.07);
+  color: var(--text-muted);
+  border: 1px solid var(--border-soft);
+  white-space: nowrap;
+}
+
+/* Dot between skills within the same group — small, muted */
+.stack-dot {
+  font-size: 0.6rem;
+  color: var(--accent-soft);
+  opacity: 0.5;
+  user-select: none;
+  margin: 0 1px;
+}
+
+/* Dot between groups — accent color, noticeably larger */
+.stack-dot-group {
+  font-size: 1.1rem;
+  color: var(--accent);
+  opacity: 0.85;
+  user-select: none;
+  margin: 0 4px;
+  line-height: 1;
+}
+
+
+/* ---- 10. Cards (projects, publications, thesis) ---- */
 
 .card-list {
   display: flex;
@@ -216,7 +257,7 @@ body {
 }
 
 
-/* ---- 10. Card internals ---- */
+/* ---- 11. Card internals ---- */
 
 .card-title {
   font-weight: 600;
@@ -252,7 +293,7 @@ body {
 }
 
 
-/* ---- 11. Badges ---- */
+/* ---- 12. Badges ---- */
 
 .badges {
   display: flex;
@@ -299,7 +340,7 @@ body {
 }
 
 
-/* ---- 12. Inline text links ---- */
+/* ---- 13. Inline text links ---- */
 
 .text-link {
   color: var(--accent);
@@ -319,7 +360,7 @@ body {
 }
 
 
-/* ---- 13. Footer ---- */
+/* ---- 14. Footer ---- */
 
 .footer {
   margin-top: 80px;
@@ -339,7 +380,7 @@ body {
 }
 
 
-/* ---- 14. Side TOC (desktop only) ---- */
+/* ---- 15. Side TOC (desktop only) ---- */
 
 .side-toc {
   position: fixed;
@@ -405,7 +446,7 @@ body {
 }
 
 
-/* ---- 15. Mobile TOC bar ---- */
+/* ---- 16. Mobile TOC bar ---- */
 
 /* Hidden by default; shown only on narrow screens */
 .mobile-toc {
