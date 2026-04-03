@@ -11,12 +11,14 @@
 
 <div class="top-controls">
   <a class="control-btn" href="/en/" aria-label="Switch to English">EN</a>
-  <button class="control-btn" type="button" aria-label="Toggle theme">☾</button>
+  <button class="control-btn" type="button" aria-label="Thema wechseln" aria-pressed="false">☾</button>
 </div>
 
 <!-- Sticky side TOC (desktop) -->
 <nav class="side-toc" aria-label="Seitenabschnitte">
   <a class="toc-link" href="#about">Über mich</a>
+  <a class="toc-link" href="#currently">Aktuell</a>
+  <a class="toc-link" href="#stack">Stack</a>
   <a class="toc-link" href="#projects">Projekte</a>
   <a class="toc-link" href="#publications">Publikationen</a>
   <a class="toc-link" href="#thesis">Abschlussarbeiten</a>
@@ -25,12 +27,14 @@
 <!-- Sticky horizontal TOC (mobile) -->
 <nav class="mobile-toc" aria-label="Seitenabschnitte">
   <a class="mobile-toc-link" href="#about">Über mich</a>
+  <a class="mobile-toc-link" href="#currently">Aktuell</a>
+  <a class="mobile-toc-link" href="#stack">Stack</a>
   <a class="mobile-toc-link" href="#projects">Projekte</a>
   <a class="mobile-toc-link" href="#publications">Publikationen</a>
   <a class="mobile-toc-link" href="#thesis">Abschlussarbeiten</a>
   <div class="mobile-toc-spacer"></div>
   <a class="mobile-toc-control" href="/en/" aria-label="Switch to English">EN</a>
-  <button class="mobile-toc-control mobile-theme-btn" type="button" aria-label="Toggle theme">☾</button>
+  <button class="mobile-toc-control mobile-theme-btn" type="button" aria-label="Thema wechseln" aria-pressed="false">☾</button>
 </nav>
 
 <script>
@@ -45,7 +49,11 @@
     const isLight = root.getAttribute("data-theme") === "light";
     const icon = isLight ? "☼" : "☾";
     btn.textContent = icon;
-    if (mobileBtn) mobileBtn.textContent = icon;
+    btn.setAttribute("aria-pressed", isLight);
+    if (mobileBtn) {
+      mobileBtn.textContent = icon;
+      mobileBtn.setAttribute("aria-pressed", isLight);
+    }
   }
 
   updateIcon();
@@ -104,7 +112,7 @@
       <h1 class="name">Michelle Elias</h1>
       <h2 class="portfolio">Portfolio</h2>
       <p class="subtitle">
-        M.Sc. Biophysik Studentin an der Humboldt-Universität zu Berlin <br />
+        M.Sc. Biophysik Studentin · Humboldt-Universität zu Berlin <br />
         Systembiologie | Systemmedizin | Computergestützte Pharmakologie
       </p>
       <nav class="links">
@@ -119,6 +127,7 @@
 
     <main>
 
+      <!-- ── Über mich ── -->
       <section class="section" id="about">
         <h2 class="section-title">Über mich</h2>
         <ul class="text">
@@ -135,8 +144,16 @@
           <li>Schwerpunkte in Systembiologie, Systemmedizin und computergestützter Pharmakologie</li>
           <li>Forschungsinteressen: PBPK-Modellierung und digitale Zwillinge</li>
           <li>Entwicklung reproduzierbarer Modell-Pipelines für modellinformierte Präzisionsdosierung</li>
-          <li>
-            Mitwirken im
+        </ul>
+      </section>
+
+      <!-- ── Aktuell ── -->
+      <section class="section" id="currently">
+        <h2 class="section-title">Aktuell</h2>
+        <ul class="text">
+          <li>Entwicklung von
+            <a class="text-link" href="#projects" title="VisFEM: Webplattform zur Visualisierung von FEM-Simulationen">VisFEM</a>,
+            einer Webplattform zur Visualisierung von FEM-Simulationen, im Rahmen des
             <a class="text-link"
               href="https://www.spp2311.de/"
               target="_blank"
@@ -144,15 +161,28 @@
               title="Robust coupling of continuum-biomechanical in silico models to establish active biological system models for later use in clinical applications – Co-design of modeling, numerics and usability">
               DFG SPP 2311
             </a>
-            :
-            <a class="text-link"
-              href="#projects"
-              title="VisFEM: Webplattform zur Visualisierung von FEM-Simulationen">
-              VisFEM
-            </a>
-            Webplattform zur Visualisierung von FEM-Simulationen.
           </li>
+          <li>Unterstützung bei der Manuskriptentwicklung und -redaktion für laufende Publikationen im König-Lab</li>
+          <li>Arbeit an reproduzierbaren PBPK-Modellierungsworkflows</li>
+          <li>M.Sc.-Studium in Systembiologie, dynamischer Modellierung und medizinsiche Biophysik</li>
         </ul>
+      </section>
+
+      <!-- ── Core Tech Stack ── -->
+      <section class="section" id="stack">
+        <div class="stack">
+          <span class="stack-pill">Modeling</span>
+          <span class="stack-pill">PBPK/PD</span>
+          <span class="stack-pill">SBML</span>
+          <span class="stack-pill">Docker</span>
+          <span class="stack-pill">Git</span>
+          <span class="stack-pill">Data Analysis</span>
+          <span class="stack-pill">Python</span>
+          <span class="stack-pill">Marimo</span>
+          <span class="stack-pill">PyTorch</span>
+          <span class="stack-pill">Trame</span>
+          <span class="stack-pill">PyVista</span>
+        </div>
       </section>
 
       <!-- ── Projekte ── -->
@@ -172,6 +202,20 @@
               <a class="badge" href="https://github.com/matthiaskoenig/visfem" target="_blank" rel="noopener">GitHub</a>
               <a class="badge" href="https://doi.org/10.5281/zenodo.19220183" target="_blank" rel="noopener">DOI</a>
               <a class="badge" href="https://pypi.org/project/visfem/" target="_blank" rel="noopener">PyPI</a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-title">Polysom-Auflösung &amp; Translationsvorhersage</div>
+            <div class="card-meta">Kursprojekt · 2025/2026</div>
+            <p class="card-desc">
+              CNN-basierte Vorhersage der mittleren Ribosomenlast (MRL) aus 5′-UTR-Sequenzen zur Untersuchung,
+              wie eine reduzierte Polysom-Profiling-Auflösung die Modellleistung beeinflusst. Trainiert auf
+              280.000 Sequenzen mit 5-facher Kreuzvalidierung über fünf Auflösungsschemata;
+              Modellinterpretation via Integrated Gradients (Captum).
+            </p>
+            <div class="badges">
+              <a class="badge" href="https://github.com/michelle-elias/polysome-resolution-project/" target="_blank" rel="noopener">GitHub</a>
             </div>
           </article>
 
@@ -207,6 +251,7 @@
         </div>
       </section>
 
+      <!-- ── Publikationen ── -->
       <section class="section" id="publications">
         <h2 class="section-title">Publikationen</h2>
 
@@ -218,7 +263,7 @@
             <div class="card-title">A digital twin of glimepiride for personalized and stratified diabetes treatment</div>
             <div class="card-meta">Elias M und König M · Frontiers in Pharmacology, 2025 · Erstautor</div>
             <div class="badges">
-              <span class="badge badge-published">Publiziert</span>
+              <span class="badge-published">Publiziert</span>
               <a class="badge" href="https://doi.org/10.3389/fphar.2025.1686415" target="_blank" rel="noopener">DOI</a>
               <a class="badge" href="https://doi.org/10.20944/preprints202506.1264.v1" target="_blank" rel="noopener">Preprint</a>
               <a class="badge" href="https://github.com/matthiaskoenig/glimepiride-model/" target="_blank" rel="noopener">Code</a>
@@ -230,7 +275,7 @@
             <div class="card-title">Reproducibility of a Digital Twin of Glimepiride for Personalized and Stratified Diabetes Treatment</div>
             <div class="card-meta">Elias M und König M · Physiome, 2025 · Erstautor</div>
             <div class="badges">
-              <span class="badge badge-published">Publiziert</span>
+              <span class="badge-published">Publiziert</span>
               <a class="badge" href="https://doi.org/10.36903/physiome.28379193" target="_blank" rel="noopener">DOI</a>
               <a class="badge" href="https://github.com/matthiaskoenig/glimepiride-model/" target="_blank" rel="noopener">Code</a>
             </div>
@@ -238,20 +283,20 @@
 
           <h3 class="card-subheading">Erstautor</h3>
 
-          <article class="card submitted">
+          <article class="card pending">
             <div class="card-title">Reproducibility of a Digital Twin of Empagliflozin Pharmacokinetics and Pharmacodynamics</div>
             <div class="card-meta">Elias M, Myshkina M, Alejandro J, Babaeva M, und König M · Physiome, 2026</div>
             <div class="badges">
-              <span class="badge badge-static">Eingereicht</span>
+              <span class="badge-static">Eingereicht</span>
               <a class="badge" href="https://github.com/matthiaskoenig/empagliflozin-model/" target="_blank" rel="noopener">Code</a>
             </div>
           </article>
 
-          <article class="card submitted">
+          <article class="card pending">
             <div class="card-title">Reproducibility of a Digital Twin of Canagliflozin Pharmacokinetics and Pharmacodynamics in Type 2 Diabetes Mellitus</div>
             <div class="card-meta">Elias M, Myshkina M, Tereshchuk V, und König M · Physiome, 2026</div>
             <div class="badges">
-              <span class="badge badge-static">Eingereicht</span>
+              <span class="badge-static">Eingereicht</span>
               <a class="badge" href="https://github.com/matthiaskoenig/canagliflozin-model/" target="_blank" rel="noopener">Code</a>
             </div>
           </article>
@@ -260,7 +305,7 @@
             <div class="card-title">Reproducibility of a Physiologically Based Pharmacokinetic and Pharmacodynamic (PBPK/PD) Model of Dapagliflozin</div>
             <div class="card-meta">Elias M, Myshkina M, Nemitz N, und König M · Physiome, 2026</div>
             <div class="badges">
-              <span class="badge badge-static">Angenommen</span>
+              <span class="badge-static">Angenommen</span>
               <a class="badge" href="https://doi.org/10.36903/physiome.31368556" target="_blank" rel="noopener">DOI</a>
               <a class="badge" href="https://github.com/matthiaskoenig/dapagliflozin-model/" target="_blank" rel="noopener">Code</a>
             </div>
@@ -268,31 +313,31 @@
 
           <h3 class="card-subheading">Co-Autor</h3>
 
-          <article class="card submitted">
+          <article class="card pending">
             <div class="card-title">A Digital Twin of Empagliflozin Pharmacokinetics and Pharmacodynamics</div>
             <div class="card-meta">Alejandro J, Elias M, Babaeva M, und König M · Preprints, 2026</div>
             <div class="badges">
-              <span class="badge badge-static">Eingereicht</span>
+              <span class="badge-static">Eingereicht</span>
               <a class="badge" href="https://www.preprints.org/manuscript/202603.1559/v1" target="_blank" rel="noopener">Preprint</a>
               <a class="badge" href="https://github.com/matthiaskoenig/empagliflozin-model/" target="_blank" rel="noopener">Code</a>
             </div>
           </article>
 
-          <article class="card submitted">
+          <article class="card pending">
             <div class="card-title">A Digital Twin of Canagliflozin Pharmacokinetics and Pharmacodynamics in Type 2 Diabetes Mellitus</div>
             <div class="card-meta">Tereshchuk V, Elias M, und König M · Preprints, 2026</div>
             <div class="badges">
-              <span class="badge badge-static">Eingereicht</span>
+              <span class="badge-static">Eingereicht</span>
               <a class="badge" href="https://www.preprints.org/manuscript/202601.2095" target="_blank" rel="noopener">Preprint</a>
               <a class="badge" href="https://github.com/matthiaskoenig/canagliflozin-model/" target="_blank" rel="noopener">Code</a>
             </div>
           </article>
 
-          <article class="card submitted">
+          <article class="card pending">
             <div class="card-title">Rivaroxaban Pharmacokinetics and Coagulation Effects: Reproducibility of a Physiologically Based Modeling Approach</div>
             <div class="card-meta">Myshkina M, Elias M, Casabianca E, und König M · Physiome, 2026 · Zweitautor</div>
             <div class="badges">
-              <span class="badge badge-static">Eingereicht</span>
+              <span class="badge-static">Eingereicht</span>
               <a class="badge" href="https://github.com/matthiaskoenig/rivaroxaban-model/" target="_blank" rel="noopener">Code</a>
             </div>
           </article>
@@ -301,7 +346,7 @@
             <div class="card-title">Reproducibility of a Digital Twin of the Angiotensin II Receptor Blocker Losartan</div>
             <div class="card-meta">Myshkina M, Elias M, Tensil E, und König M · Physiome, 2026 · Zweitautor</div>
             <div class="badges">
-              <span class="badge badge-static">Angenommen</span>
+              <span class="badge-static">Angenommen</span>
               <a class="badge" href="https://doi.org/10.36903/physiome.31359823" target="_blank" rel="noopener">DOI</a>
               <a class="badge" href="https://github.com/matthiaskoenig/losartan-model/" target="_blank" rel="noopener">Code</a>
             </div>
@@ -311,7 +356,7 @@
             <div class="card-title">A Physiologically Based Pharmacokinetic and Pharmacodynamic (PBPK/PD) Model of Dapagliflozin in Type 2 Diabetes Mellitus: The Effect of Dosing, Hepatorenal Impairment, and Food</div>
             <div class="card-meta">Nemitz N, Elias M, und König M · Pharmaceutics, 2026</div>
             <div class="badges">
-              <span class="badge badge-published">Publiziert</span>
+              <span class="badge-published">Publiziert</span>
               <a class="badge" href="https://doi.org/10.3390/pharmaceutics18030287" target="_blank" rel="noopener">DOI</a>
               <a class="badge" href="https://doi.org/10.20944/preprints202511.0981.v1" target="_blank" rel="noopener">Preprint</a>
               <a class="badge" href="https://github.com/matthiaskoenig/dapagliflozin-model/" target="_blank" rel="noopener">Code</a>
@@ -321,6 +366,7 @@
         </div>
       </section>
 
+      <!-- ── Abschlussarbeiten ── -->
       <section class="section" id="thesis">
         <h2 class="section-title">Abschlussarbeiten</h2>
         <div class="card-list">
@@ -337,7 +383,7 @@
               CYP2C9-Genvarianten.
             </p>
             <div class="badges">
-              <span class="badge badge-published">Bachelorarbeit</span>
+              <span class="badge-published">Bachelorarbeit</span>
               <a class="badge" href="/assets/Bachelor.Thesis.Michelle.Elias.pdf" target="_blank" rel="noopener">PDF</a>
             </div>
           </article>
@@ -348,7 +394,7 @@
 
     <footer class="footer">
       <span>📍 Berlin · Systembiologie | Systemmedizin | Computergestützte Pharmakologie</span>
-      <time class="muted" datetime="2026-04-01">Zuletzt aktualisiert: 1. April 2026</time>
+      <time class="muted" datetime="2026-04-03">Zuletzt aktualisiert: 3. April 2026</time>
     </footer>
 
   </div>
