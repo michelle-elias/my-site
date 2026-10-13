@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Impressum · Michelle Elias</title>
+  <meta name="robots" content="noindex" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <script>
+    try {
+      const t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+  <script src="/theme.js" defer></script>
+</head>
+<body>
+<div class="page">
+
+  <nav class="topbar" aria-label="Seite">
+    <div class="topnav">
+      <a href="/de/">← Startseite</a>
+    </div>
+    <div class="controls">
+      <a class="control" href="/en/" hreflang="en" lang="en" title="English version">EN</a>
+      <button class="control theme-toggle" type="button" aria-label="Dunkelmodus" title="Dunkelmodus">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <main class="legal">
+    <h1>Impressum</h1>
+    <p class="muted" lang="en">Legal notice: provider information required for websites in Germany</p>
+
+    <h2>Angaben gemäß § 5 DDG</h2>
+    <address>
+      Michelle Elias<br />
+      Wutzkyallee 71<br />
+      12353 Berlin<br />
+      Deutschland
+    </address>
+
+    <h2>Kontakt</h2>
+    <p>E-Mail: <a href="mailto:michelle.elias@student.hu-berlin.de">michelle.elias@student.hu-berlin.de</a></p>
+  </main>
+
+  <footer class="footer">
+    <span>Berlin</span>
+  </footer>
+
+</div>
+</body>
+</html>

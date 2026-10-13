@@ -4,451 +4,363 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Michelle Elias</title>
+  <meta name="description" content="Michelle Elias, M.Sc. Biophysics student at Humboldt-Universität zu Berlin. Computational systems medicine of the liver: PBPK/PD modelling, liver histology image analysis and image-informed simulation." />
+  <link rel="canonical" href="https://michelle-elias.de/en/" />
+  <link rel="alternate" hreflang="en" href="https://michelle-elias.de/en/" />
+  <link rel="alternate" hreflang="de" href="https://michelle-elias.de/de/" />
+  <link rel="alternate" hreflang="x-default" href="https://michelle-elias.de/en/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Michelle Elias" />
+  <meta property="og:description" content="M.Sc. Biophysics student at Humboldt-Universität zu Berlin. Computational systems medicine of the liver." />
+  <meta property="og:url" content="https://michelle-elias.de/en/" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:locale:alternate" content="de_DE" />
   <link rel="stylesheet" href="/styles.css" />
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <script>
+    try {
+      const t = localStorage.getItem("theme");
+      if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+  <script src="/theme.js" defer></script>
 </head>
 <body>
+<div class="page">
 
-<div class="top-controls">
-  <a class="control-btn" href="/de/" aria-label="Switch to German">DE</a>
-  <button class="control-btn" type="button" aria-label="Toggle theme" aria-pressed="false">☾</button>
+  <nav class="topbar" aria-label="Page">
+    <div class="topnav">
+      <a href="#research">Research</a>
+      <a href="#projects">Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#experience">Experience</a>
+    </div>
+    <div class="controls">
+      <a class="control" href="/de/" hreflang="de" lang="de" title="Deutsche Version">DE</a>
+      <button class="control theme-toggle" type="button" aria-label="Dark mode" title="Dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <header class="masthead">
+    <h1>Michelle Elias</h1>
+    <p class="tagline">
+      <span>M.Sc. Biophysics student · Humboldt-Universität zu Berlin</span>
+      <span>Computational systems medicine of the liver · <a href="https://livermetabolism.com/" target="_blank" rel="noopener">König Lab</a></span>
+    </p>
+    <ul class="contact">
+      <li><a href="/assets/CV.pdf" target="_blank" rel="noopener">CV</a></li>
+      <li><a href="mailto:michelle.elias@student.hu-berlin.de">Email</a></li>
+      <li><a href="https://github.com/michelle-elias" target="_blank" rel="noopener">GitHub</a></li>
+      <li><a href="https://orcid.org/0009-0005-7959-3164" target="_blank" rel="noopener">ORCID</a></li>
+      <li><a href="https://scholar.google.com/citations?user=TX6Or1MAAAAJ" target="_blank" rel="noopener">Google Scholar</a></li>
+      <li><a href="https://www.linkedin.com/in/michelle-elias-b28324281/" target="_blank" rel="noopener">LinkedIn</a></li>
+    </ul>
+  </header>
+
+  <main>
+
+    <!-- ── About ── -->
+    <section class="section" id="about">
+      <h2>About</h2>
+      <div>
+        <p>
+          Background in physiologically based pharmacokinetic and pharmacodynamic (PBPK/PD)
+          modelling, digital twins of drugs and reproducibility studies of published models.
+          Current work moves from the whole body to the tissue scale: AI-based segmentation of
+          whole-slide liver histology, with the resulting feature maps informing spatial PDE–ODE
+          simulations of transport and tissue damage.
+        </p>
+        <p>
+          Main interests: mechanistic modelling, biomedical image analysis, and open,
+          reproducible research software.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── Research ── -->
+    <section class="section" id="research">
+      <h2>Research</h2>
+      <div>
+
+        <div class="group">
+          <h3>Master project &amp; thesis · M.Sc. Biophysics</h3>
+          <p class="working-title">
+            <em>From spatial liver imaging to image-informed dynamical simulation</em>
+            <span class="muted">(working title)</span>
+          </p>
+          <ol class="pipeline" aria-label="Workflow">
+            <li>Whole-slide images</li>
+            <li>Segmentation</li>
+            <li>Feature maps</li>
+            <li>Registration</li>
+            <li>Meshes</li>
+            <li>PDE–ODE simulation</li>
+          </ol>
+          <ul class="entries">
+            <li>
+              <div class="entry-head">
+                <h4 class="entry-title">Master project</h4>
+                <span class="entry-date">08/2026 – 01/2027</span>
+              </div>
+              <p class="entry-sub">Humboldt-Universität zu Berlin</p>
+              <p class="entry-desc">
+                Data and image-analysis foundation: metadata schema, scalable storage of whole-slide
+                images (OME-TIFF/OME-Zarr), AI-assisted necrosis segmentation, quantitative feature
+                maps and interactive 2D visualization.
+              </p>
+            </li>
+            <li>
+              <div class="entry-head">
+                <h4 class="entry-title">Master thesis</h4>
+                <span class="entry-date">02/2027 – 09/2027</span>
+              </div>
+              <p class="entry-sub">Universität zu Lübeck</p>
+              <p class="entry-desc">
+                Registration of neighbouring tissue sections, image-to-mesh mapping and coupled
+                PDE–ODE simulation (FEniCSx, libRoadRunner), with simulation results returned to the
+                viewer as time-dependent layers. Use cases: APAP-induced liver necrosis and hepatic
+                steatosis.
+              </p>
+            </li>
+          </ul>
+          <p class="note">Supervisor: Prof. Dr. Matthias König</p>
+        </div>
+
+        <div class="group">
+          <h3>Bachelor thesis · B.Sc. Biology</h3>
+          <div class="entry-head">
+            <p class="working-title">
+              <em>A physiological-based pharmacokinetic (PBPK) model of the sulfonylurea glimepiride</em>
+            </p>
+            <span class="entry-date">2025</span>
+          </div>
+          <p class="entry-sub">Humboldt-Universität zu Berlin · König Lab</p>
+          <p class="entry-desc">
+            Whole-body PBPK model of the antidiabetic drug glimepiride in SBML, covering renal and
+            hepatic impairment, bodyweight and CYP2C9 genotype, validated against 20 clinical
+            studies. Basis of the published glimepiride digital twin and its interactive web app.
+          </p>
+          <p class="links">
+            <a href="/assets/Bachelor.Thesis.Michelle.Elias.pdf" target="_blank" rel="noopener">Thesis (PDF, 37&nbsp;MB)</a>
+            <a href="https://doi.org/10.3389/fphar.2025.1686415" target="_blank" rel="noopener">Paper</a>
+            <a href="https://github.com/matthiaskoenig/glimepiride-model" target="_blank" rel="noopener">Model</a>
+            <a href="https://glimepiride.de/" target="_blank" rel="noopener">Web app</a>
+            <a href="https://github.com/matthiaskoenig/glimepiride-app" target="_blank" rel="noopener">App code</a>
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Projects ── -->
+    <section class="section" id="projects">
+      <h2>Projects</h2>
+      <ul class="entries">
+        <li>
+          <div class="entry-head">
+            <h3 class="entry-title">SlideViz</h3>
+            <span class="entry-date">2026 · in development</span>
+          </div>
+          <p class="entry-desc">
+            Viewer and data layer for whole-slide liver histology: slides with JSON metadata,
+            a queryable slide index and multiscale display in napari. Basis for segmentation
+            results and registered layers in the master project.
+          </p>
+          <p class="links">
+            <a href="https://github.com/matthiaskoenig/slideviz" target="_blank" rel="noopener">GitHub</a>
+          </p>
+        </li>
+        <li>
+          <div class="entry-head">
+            <h3 class="entry-title">VisFEM</h3>
+            <span class="entry-date">2026</span>
+          </div>
+          <p class="entry-desc">
+            Web platform for interactive visualization of finite-element (FEM) simulation results
+            in biomedical research, developed within DFG SPP 2311. Open source and installable
+            from PyPI; manuscript in preparation.
+          </p>
+          <p class="links">
+            <a href="https://github.com/matthiaskoenig/visfem" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://pypi.org/project/visfem/" target="_blank" rel="noopener">PyPI</a>
+            <a href="https://doi.org/10.5281/zenodo.19220183" target="_blank" rel="noopener">DOI</a>
+          </p>
+        </li>
+        <li>
+          <div class="entry-head">
+            <h3 class="entry-title">Polysome resolution &amp; translation prediction</h3>
+            <span class="entry-date">2025 – 2026 · course project</span>
+          </div>
+          <p class="entry-desc">
+            CNN-based prediction of mean ribosome load from 5′ UTR sequences, testing how reduced
+            polysome-profiling resolution affects model performance. 280,000 sequences, 5-fold
+            cross-validation across five resolution schemes; interpretation via Integrated
+            Gradients (Captum).
+          </p>
+          <p class="links">
+            <a href="https://github.com/michelle-elias/polysome-resolution-project/" target="_blank" rel="noopener">GitHub</a>
+          </p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ── Publications ── -->
+    <section class="section" id="publications">
+      <h2>Publications</h2>
+      <div>
+
+        <div class="group">
+          <h3>Journal articles</h3>
+          <ol class="pubs">
+            <li>
+              <p class="pub-title">Reproducibility of a Physiologically Based Pharmacokinetic and Pharmacodynamic (PBPK/PD) Model of Dapagliflozin</p>
+              <p class="pub-meta"><strong>Elias M</strong>, Myshkina M, Nemitz N, König M · <em>Physiome</em>, 2026</p>
+              <p class="links">
+                <a href="https://doi.org/10.36903/physiome.31368556" target="_blank" rel="noopener">DOI</a>
+                <a href="https://github.com/matthiaskoenig/dapagliflozin-model" target="_blank" rel="noopener">Code</a>
+              </p>
+            </li>
+            <li>
+              <p class="pub-title">Reproducibility of a Digital Twin of the Angiotensin II Receptor Blocker Losartan</p>
+              <p class="pub-meta">Myshkina M, <strong>Elias M</strong>, Tensil E, König M · <em>Physiome</em>, 2026</p>
+              <p class="links">
+                <a href="https://doi.org/10.36903/physiome.31359823" target="_blank" rel="noopener">DOI</a>
+                <a href="https://github.com/matthiaskoenig/losartan-model" target="_blank" rel="noopener">Code</a>
+              </p>
+            </li>
+            <li>
+              <p class="pub-title">A Physiologically Based Pharmacokinetic and Pharmacodynamic (PBPK/PD) Model of Dapagliflozin in Type 2 Diabetes Mellitus: The Effect of Dosing, Hepatorenal Impairment, and Food</p>
+              <p class="pub-meta">Nemitz N, <strong>Elias M</strong>, König M · <em>Pharmaceutics</em>, 2026</p>
+              <p class="links">
+                <a href="https://doi.org/10.3390/pharmaceutics18030287" target="_blank" rel="noopener">DOI</a>
+                <a href="https://doi.org/10.20944/preprints202511.0981.v1" target="_blank" rel="noopener">Preprint</a>
+                <a href="https://github.com/matthiaskoenig/dapagliflozin-model" target="_blank" rel="noopener">Code</a>
+              </p>
+            </li>
+            <li>
+              <p class="pub-title">Reproducibility of a Digital Twin of Glimepiride for Personalized and Stratified Diabetes Treatment</p>
+              <p class="pub-meta"><strong>Elias M</strong>, König M · <em>Physiome</em>, 2025</p>
+              <p class="links">
+                <a href="https://doi.org/10.36903/physiome.28379193" target="_blank" rel="noopener">DOI</a>
+                <a href="https://github.com/matthiaskoenig/glimepiride-model" target="_blank" rel="noopener">Code</a>
+              </p>
+            </li>
+            <li>
+              <p class="pub-title">A Digital Twin of Glimepiride for Personalized and Stratified Diabetes Treatment</p>
+              <p class="pub-meta"><strong>Elias M</strong>, König M · <em>Frontiers in Pharmacology</em>, 2025</p>
+              <p class="links">
+                <a href="https://doi.org/10.3389/fphar.2025.1686415" target="_blank" rel="noopener">DOI</a>
+                <a href="https://doi.org/10.20944/preprints202506.1264.v1" target="_blank" rel="noopener">Preprint</a>
+                <a href="https://github.com/matthiaskoenig/glimepiride-model" target="_blank" rel="noopener">Code</a>
+                <a href="https://glimepiride.de/" target="_blank" rel="noopener">Web app</a>
+              </p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="group">
+          <h3>Preprints</h3>
+          <ol class="pubs">
+            <li>
+              <p class="pub-title">An Open and Reproducible Digital Twin for Personalised Anticoagulant Therapy: Modelling Apixaban Pharmacokinetics and Pharmacodynamics</p>
+              <p class="pub-meta">Myshkina M, Babaeva M, Nguyen LC, Bedón S, Metternich J, <strong>Elias M</strong>, König M · <em>Preprints</em>, 2026</p>
+              <p class="links">
+                <a href="https://doi.org/10.20944/preprints202605.0249.v1" target="_blank" rel="noopener">DOI</a>
+              </p>
+            </li>
+            <li>
+              <p class="pub-title">A Digital Twin of Empagliflozin Pharmacokinetics and Pharmacodynamics</p>
+              <p class="pub-meta">Alejandro J, <strong>Elias M</strong>, Babaeva M, König M · <em>Preprints</em>, 2026</p>
+              <p class="links">
+                <a href="https://doi.org/10.20944/preprints202603.1559.v1" target="_blank" rel="noopener">DOI</a>
+                <a href="https://github.com/matthiaskoenig/empagliflozin-model" target="_blank" rel="noopener">Code</a>
+              </p>
+            </li>
+            <li>
+              <p class="pub-title">A Digital Twin of Canagliflozin Pharmacokinetics and Pharmacodynamics in Type 2 Diabetes Mellitus</p>
+              <p class="pub-meta">Tereshchuk V, <strong>Elias M</strong>, König M · <em>Preprints</em>, 2026</p>
+              <p class="links">
+                <a href="https://doi.org/10.20944/preprints202601.2095.v1" target="_blank" rel="noopener">DOI</a>
+                <a href="https://github.com/matthiaskoenig/canagliflozin-model" target="_blank" rel="noopener">Code</a>
+              </p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="group">
+          <h3>Submitted</h3>
+          <ol class="pubs">
+            <li>
+              <p class="pub-title">Reproducibility of a Digital Twin of Hydrochlorothiazide Pharmacokinetics and Pharmacodynamics</p>
+              <p class="pub-meta"><strong>Elias M</strong>, Myshkina M, Schwaiger A, König M · <em>Physiome</em></p>
+            </li>
+            <li>
+              <p class="pub-title">Reproducibility of a Digital Twin of Canagliflozin Pharmacokinetics and Pharmacodynamics in Type 2 Diabetes Mellitus</p>
+              <p class="pub-meta"><strong>Elias M</strong>, Myshkina M, Tereshchuk V, König M · <em>Physiome</em></p>
+              <p class="links">
+                <a href="https://github.com/matthiaskoenig/canagliflozin-model" target="_blank" rel="noopener">Code</a>
+              </p>
+            </li>
+            <li>
+              <p class="pub-title">Reproducibility of a Digital Twin of Empagliflozin Pharmacokinetics and Pharmacodynamics in Type 2 Diabetes Mellitus</p>
+              <p class="pub-meta"><strong>Elias M</strong>, Myshkina M, Alejandro J, Babaeva M, König M · <em>Physiome</em></p>
+              <p class="links">
+                <a href="https://github.com/matthiaskoenig/empagliflozin-model" target="_blank" rel="noopener">Code</a>
+              </p>
+            </li>
+            <li>
+              <p class="pub-title">Rivaroxaban Pharmacokinetics and Coagulation Effects: Reproducibility of a Physiologically Based Modeling Approach</p>
+              <p class="pub-meta">Myshkina M, <strong>Elias M</strong>, Casabianca E, König M · <em>Physiome</em></p>
+              <p class="links">
+                <a href="https://github.com/matthiaskoenig/rivaroxaban-model" target="_blank" rel="noopener">Code</a>
+              </p>
+            </li>
+          </ol>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── Experience ── -->
+    <section class="section" id="experience">
+      <h2>Experience</h2>
+      <ul class="entries">
+        <li>
+          <div class="entry-head">
+            <h3 class="entry-title">Student Assistant, DFG Priority Programme SPP 2311</h3>
+            <span class="entry-date">08/2026 – present</span>
+          </div>
+          <p class="entry-sub">University of Stuttgart, Institute for Statics and Dynamics of Aerospace Structures (ISD) · with the König Lab</p>
+          <p class="entry-desc">
+            Development of VisFEM within
+            <a href="https://www.spp2311.de/" target="_blank" rel="noopener">SPP 2311</a>.
+          </p>
+        </li>
+        <li>
+          <div class="entry-head">
+            <h3 class="entry-title">Student Assistant, Systems Medicine of the Liver</h3>
+            <span class="entry-date">01/2026 – 07/2026</span>
+          </div>
+          <p class="entry-sub">Humboldt-Universität zu Berlin, Institute for Theoretical Biology · König Lab</p>
+          <p class="entry-desc">
+            PBPK/PD modelling and reproducible model pipelines for Physiome reproducibility
+            studies; contributions to VisFEM and to programme-wide data collection in SPP 2311.
+          </p>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <span>Berlin · Last updated <time datetime="2026-10-13">October 2026</time></span>
+    <a href="/impressum/" hreflang="de">Impressum</a>
+  </footer>
+
 </div>
-
-<!-- Sticky side TOC (desktop) -->
-<nav class="side-toc" aria-label="Page sections">
-  <a class="toc-link" href="#about">About</a>
-  <a class="toc-link" href="#currently">Currently</a>
-  <a class="toc-link" href="#stack">Stack</a>
-  <a class="toc-link" href="#projects">Projects</a>
-  <a class="toc-link" href="#publications">Publications</a>
-  <a class="toc-link" href="#thesis">Thesis</a>
-</nav>
-
-<!-- Sticky horizontal TOC (mobile) -->
-<nav class="mobile-toc" aria-label="Page sections">
-  <a class="mobile-toc-link" href="#about">About</a>
-  <a class="mobile-toc-link" href="#currently">Currently</a>
-  <a class="mobile-toc-link" href="#stack">Stack</a>
-  <a class="mobile-toc-link" href="#projects">Projects</a>
-  <a class="mobile-toc-link" href="#publications">Publications</a>
-  <a class="mobile-toc-link" href="#thesis">Thesis</a>
-  <div class="mobile-toc-spacer"></div>
-  <a class="mobile-toc-control" href="/de/" aria-label="Switch to German">DE</a>
-  <button class="mobile-toc-control mobile-theme-btn" type="button" aria-label="Toggle theme" aria-pressed="false">☾</button>
-</nav>
-
-<script>
-  const root = document.documentElement;
-  const btn = document.querySelector(".control-btn[type='button']");
-  const mobileBtn = document.querySelector(".mobile-theme-btn");
-
-  const saved = localStorage.getItem("theme");
-  if (saved) root.setAttribute("data-theme", saved);
-
-  function updateIcon() {
-    const isLight = root.getAttribute("data-theme") === "light";
-    const icon = isLight ? "☼" : "☾";
-    btn.textContent = icon;
-    btn.setAttribute("aria-pressed", isLight);
-    if (mobileBtn) {
-      mobileBtn.textContent = icon;
-      mobileBtn.setAttribute("aria-pressed", isLight);
-    }
-  }
-
-  updateIcon();
-
-  function toggleTheme() {
-    const current = root.getAttribute("data-theme");
-    const next = current === "light" ? "dark" : "light";
-    root.setAttribute("data-theme", next);
-    localStorage.setItem("theme", next);
-    updateIcon();
-  }
-
-  btn.addEventListener("click", toggleTheme);
-  if (mobileBtn) mobileBtn.addEventListener("click", toggleTheme);
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const tocLinks = document.querySelectorAll(".toc-link");
-    const mobileTocLinks = document.querySelectorAll(".mobile-toc-link");
-    const sections = document.querySelectorAll("section[id]");
-
-    function updateActive() {
-      const atBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 10;
-
-      let currentId;
-      if (atBottom) {
-        currentId = sections[sections.length - 1].id;
-      } else {
-        currentId = sections[0].id;
-        sections.forEach(s => {
-          if (s.getBoundingClientRect().top <= window.innerHeight * 0.5) {
-            currentId = s.id;
-          }
-        });
-      }
-
-      tocLinks.forEach(l => l.classList.remove("toc-active"));
-      const activeDesktop = document.querySelector(`.toc-link[href="#${currentId}"]`);
-      if (activeDesktop) activeDesktop.classList.add("toc-active");
-
-      mobileTocLinks.forEach(l => l.classList.remove("toc-active"));
-      const activeMobile = document.querySelector(`.mobile-toc-link[href="#${currentId}"]`);
-      if (activeMobile) {
-        activeMobile.classList.add("toc-active");
-        activeMobile.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
-      }
-    }
-
-    window.addEventListener("scroll", updateActive, { passive: true });
-    updateActive();
-  });
-</script>
-
-  <div class="container">
-
-    <header class="header">
-      <h1 class="name">Michelle Elias</h1>
-      <h2 class="portfolio">Portfolio</h2>
-      <p class="subtitle">
-        M.Sc. Biophysics Student · Humboldt University of Berlin <br />
-        Systems Biology | Systems Medicine | Computational Pharmacology
-      </p>
-      <nav class="links">
-        <a class="btn" href="/assets/CV.pdf" target="_blank" rel="noopener">CV</a>
-        <a class="btn" href="https://scholar.google.com/citations?user=TX6Or1MAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
-        <a class="btn" href="https://orcid.org/0009-0005-7959-3164" target="_blank" rel="noopener">ORCID</a>
-        <a class="btn" href="https://github.com/michelle-elias" target="_blank" rel="noopener">GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/michelle-elias-b28324281/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn" href="/cdn-cgi/l/email-protection#44292d272c212828216a21282d25370437303120212a306a2c3169262136282d2a6a2021">Email</a>
-      </nav>
-    </header>
-
-    <main>
-
-      <!-- ── About ── -->
-      <section class="section" id="about">
-        <h2 class="section-title">About</h2>
-        <ul class="text">
-          <li>M.Sc. student in Biophysics at Humboldt University of Berlin</li>
-          <li>Working as student assistant in the research group of
-            <a class="text-link"
-              href="https://livermetabolism.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Systems Medicine & Biology for Advanced Drug Metabolism and Liver Studies">
-              Dr. Matthias König
-            </a>
-          </li>
-          <li>Focus on systems biology, systems medicine, and computational pharmacology</li>
-          <li>Research interests include PBPK modeling and digital twins</li>
-          <li>Development of reproducible model pipelines for model-informed precision dosing</li>
-        </ul>
-      </section>
-
-      <!-- ── Currently ── -->
-      <section class="section" id="currently">
-        <h2 class="section-title">Currently</h2>
-        <ul class="text">
-          <li>Master's project in the König Lab: building a reusable pipeline for analysing whole-slide
-            images of liver tissue. Machine learning quantifies tissue damage from histology slides, and
-            an interactive viewer,
-            <a class="text-link" href="#projects" title="SlideViz: Interactive viewer for whole-slide liver histology">SlideViz</a>,
-            displays the results as composable layers over the original gigapixel images
-          </li>
-          <li>Preparing my Master's thesis, which extends this work into simulation: turning the segmented
-            tissue into a geometry on which drug metabolism and damage can be modelled directly
-          </li>
-          <li>Developing
-            <a class="text-link" href="#projects" title="VisFEM: Web platform for FEM simulation visualization">VisFEM</a>,
-            a web platform for FEM simulation visualization, as part of
-            <a class="text-link"
-              href="https://www.spp2311.de/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Robust coupling of continuum-biomechanical in silico models to establish active biological system models for later use in clinical applications – Co-design of modeling, numerics and usability">
-              DFG SPP 2311
-            </a>
-          </li>
-          <li>Supporting manuscript development and editing for ongoing publications in the König Lab</li>
-          <li>Working on reproducible PBPK modeling workflows</li>
-          <li>M.Sc. coursework in systems biology, dynamic modeling, and medical biophysics</li>
-        </ul>
-      </section>
-
-      <!-- ── Core Tech Stack ── -->
-      <section class="section" id="stack">
-        <div class="stack">
-          <span class="stack-pill">Modeling</span>
-          <span class="stack-pill">PBPK/PD</span>
-          <span class="stack-pill">SBML</span>
-          <span class="stack-pill">Docker</span>
-          <span class="stack-pill">Git</span>
-          <span class="stack-pill">Data Analysis</span>
-          <span class="stack-pill">Python</span>
-          <span class="stack-pill">Marimo</span>
-          <span class="stack-pill">PyTorch</span>
-          <span class="stack-pill">Trame</span>
-          <span class="stack-pill">PyVista</span>
-        </div>
-      </section>
-
-      <!-- ── Projects ── -->
-      <section class="section" id="projects">
-        <h2 class="section-title">Projects</h2>
-        <div class="card-list">
-
-          <article class="card highlighted">
-            <div class="card-title">SlideViz: Whole-Slide Image Analysis of Liver Tissue</div>
-            <div class="card-meta"><strong>Elias M</strong> and König M · 2026 · Work in progress</div>
-            <p class="card-desc">
-              A reusable pipeline for analysing whole-slide images of liver tissue. Machine learning
-              quantifies tissue damage from histology slides; an interactive viewer displays the results
-              as composable layers over the original gigapixel images. Developing as my Master's project
-              in the König Lab.
-            </p>
-            <div class="badges">
-              <span class="badge-static">In development</span>
-              <a class="badge" href="https://github.com/matthiaskoenig/slideviz" target="_blank" rel="noopener">GitHub</a>
-            </div>
-          </article>
-
-          <article class="card highlighted">
-            <div class="card-title">VisFEM: Web Visualization of FEM Models</div>
-            <div class="card-meta"><strong>Elias M</strong> and König M · 2026</div>
-            <p class="card-desc">
-              An interactive web-based tool for visualization of Finite Element Method (FEM)
-              simulation results, with a focus on biomedical applications. Developed as part of
-              DFG SPP 2311 and installable as an open-source Python package via PyPI.
-            </p>
-            <div class="badges">
-              <a class="badge" href="https://github.com/matthiaskoenig/visfem" target="_blank" rel="noopener">GitHub</a>
-              <a class="badge" href="https://doi.org/10.5281/zenodo.19220183" target="_blank" rel="noopener">DOI</a>
-              <a class="badge" href="https://pypi.org/project/visfem/" target="_blank" rel="noopener">PyPI</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-title">Polysome Resolution &amp; Translation Prediction</div>
-            <div class="card-meta">Course Project · 2025/2026</div>
-            <p class="card-desc">
-              CNN-based prediction of mean ribosome load (MRL) from 5′ UTR sequences, investigating
-              how reducing polysome profiling resolution affects model performance. Trained on
-              280,000 sequences with 5-fold cross-validation across five resolution schemes;
-              model interpretation via Integrated Gradients (Captum).
-            </p>
-            <div class="badges">
-              <a class="badge" href="https://github.com/michelle-elias/polysome-resolution-project/" target="_blank" rel="noopener">GitHub</a>
-            </div>
-          </article>
-
-
-          <article class="card">
-            <div class="card-title">Glimepiride Digital Twin Web Application</div>
-            <div class="card-meta"><strong>Elias M</strong> and König M · 2024–2025</div>
-            <p class="card-desc">
-              Interactive web application implementing the glimepiride digital twin for personalized
-              and stratified diabetes treatment, built with Marimo and deployable via Docker.
-              Accompanies the glimepiride PBPK/PD model and the corresponding publication in
-              Frontiers in Pharmacology.
-            </p>
-            <div class="badges">
-              <a class="badge" href="https://glimepiride.de/" target="_blank" rel="noopener">Web App</a>
-              <a class="badge" href="https://github.com/matthiaskoenig/glimepiride-app" target="_blank" rel="noopener">GitHub</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-title">Glimepiride PBPK Model</div>
-            <div class="card-meta"><strong>Elias M</strong> and König M · 2024–2025</div>
-            <p class="card-desc">
-              Physiologically based pharmacokinetic (PBPK) model of glimepiride distributed in
-              SBML format, including liver, kidney, intestine, and whole-body submodels. Accompanied
-              by a COMBINE archive, FAIR assessment, and reproducible simulation pipeline.
-            </p>
-            <div class="badges">
-              <a class="badge" href="https://github.com/matthiaskoenig/glimepiride-model" target="_blank" rel="noopener">GitHub</a>
-              <a class="badge" href="https://doi.org/10.5281/zenodo.14628700" target="_blank" rel="noopener">DOI</a>
-            </div>
-          </article>
-
-        </div>
-      </section>
-
-      <!-- ── Publications ── -->
-      <section class="section" id="publications">
-        <h2 class="section-title">Publications</h2>
-
-        <div class="card-list">
-
-          <h3 class="card-subheading">Featured</h3>
-
-          <article class="card highlighted">
-            <div class="card-title">A digital twin of glimepiride for personalized and stratified diabetes treatment</div>
-            <div class="card-meta"><strong>Elias M</strong> and König M · Frontiers in Pharmacology, 2025 · First Author</div>
-            <div class="badges">
-              <span class="badge-published">Published</span>
-              <a class="badge" href="https://doi.org/10.3389/fphar.2025.1686415" target="_blank" rel="noopener">DOI</a>
-              <a class="badge" href="https://doi.org/10.20944/preprints202506.1264.v1" target="_blank" rel="noopener">Preprint</a>
-              <a class="badge" href="https://github.com/matthiaskoenig/glimepiride-model/" target="_blank" rel="noopener">GitHub</a>
-              <a class="badge" href="https://glimepiride.de/" target="_blank" rel="noopener">Web App</a>
-            </div>
-          </article>
-
-          <article class="card highlighted">
-            <div class="card-title">Reproducibility of a Digital Twin of Glimepiride for Personalized and Stratified Diabetes Treatment</div>
-            <div class="card-meta"><strong>Elias M</strong> and König M · Physiome, 2025 · First Author</div>
-            <div class="badges">
-              <span class="badge-published">Published</span>
-              <a class="badge" href="https://doi.org/10.36903/physiome.28379193" target="_blank" rel="noopener">DOI</a>
-              <a class="badge" href="https://github.com/matthiaskoenig/glimepiride-model/" target="_blank" rel="noopener">GitHub</a>
-            </div>
-          </article>
-
-          <h3 class="card-subheading">First Author</h3>
-
-          <article class="card pending">
-            <div class="card-title">Reproducibility of a Digital Twin of Empagliflozin Pharmacokinetics and Pharmacodynamics</div>
-            <div class="card-meta"><strong>Elias M</strong>, Myshkina M, Alejandro J, Babaeva M, and König M · Physiome, 2026</div>
-            <div class="badges">
-              <span class="badge-static">Submitted</span>
-              <a class="badge" href="https://github.com/matthiaskoenig/empagliflozin-model/" target="_blank" rel="noopener">GitHub</a>
-            </div>
-          </article>
-
-          <article class="card pending">
-            <div class="card-title">Reproducibility of a Digital Twin of Canagliflozin Pharmacokinetics and Pharmacodynamics in Type 2 Diabetes Mellitus</div>
-            <div class="card-meta"><strong>Elias M</strong>, Myshkina M, Tereshchuk V, and König M · Physiome, 2026</div>
-            <div class="badges">
-              <span class="badge-static">Submitted</span>
-              <a class="badge" href="https://github.com/matthiaskoenig/canagliflozin-model/" target="_blank" rel="noopener">GitHub</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-title">Reproducibility of a Physiologically Based Pharmacokinetic and Pharmacodynamic (PBPK/PD) Model of Dapagliflozin</div>
-            <div class="card-meta"><strong>Elias M</strong>, Myshkina M, Nemitz N, and König M · Physiome, 2026</div>
-            <div class="badges">
-              <span class="badge-static">Published</span>
-              <a class="badge" href="https://doi.org/10.36903/physiome.31368556" target="_blank" rel="noopener">DOI</a>
-              <a class="badge" href="https://github.com/matthiaskoenig/dapagliflozin-model/" target="_blank" rel="noopener">GitHub</a>
-            </div>
-          </article>
-
-          <h3 class="card-subheading">Co-Author</h3>
-
-          <article class="card pending">
-            <div class="card-title">A Digital Twin of Empagliflozin Pharmacokinetics and Pharmacodynamics</div>
-            <div class="card-meta">Alejandro J, <strong>Elias M</strong>, Babaeva M, and König M · Preprints, 2026</div>
-            <div class="badges">
-              <span class="badge-static">Submitted</span>
-              <a class="badge" href="https://www.preprints.org/manuscript/202603.1559/v1" target="_blank" rel="noopener">Preprint</a>
-              <a class="badge" href="https://github.com/matthiaskoenig/empagliflozin-model/" target="_blank" rel="noopener">GitHub</a>
-            </div>
-          </article>
-
-          <article class="card pending">
-            <div class="card-title">A Digital Twin of Canagliflozin Pharmacokinetics and Pharmacodynamics in Type 2 Diabetes Mellitus</div>
-            <div class="card-meta">Tereshchuk V, <strong>Elias M</strong>, and König M · Preprints, 2026</div>
-            <div class="badges">
-              <span class="badge-static">Submitted</span>
-              <a class="badge" href="https://www.preprints.org/manuscript/202601.2095" target="_blank" rel="noopener">Preprint</a>
-              <a class="badge" href="https://github.com/matthiaskoenig/canagliflozin-model/" target="_blank" rel="noopener">GitHub</a>
-            </div>
-          </article>
-
-          <article class="card pending">
-            <div class="card-title">Rivaroxaban Pharmacokinetics and Coagulation Effects: Reproducibility of a Physiologically Based Modeling Approach</div>
-            <div class="card-meta">Myshkina M, <strong>Elias M</strong>, Casabianca E, and König M · Physiome, 2026 · Second Author</div>
-            <div class="badges">
-              <span class="badge-static">Submitted</span>
-              <a class="badge" href="https://github.com/matthiaskoenig/rivaroxaban-model/" target="_blank" rel="noopener">GitHub</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-title">Reproducibility of a Digital Twin of the Angiotensin II Receptor Blocker Losartan</div>
-            <div class="card-meta">Myshkina M, <strong>Elias M</strong>, Tensil E, and König M · Physiome, 2026 · Second Author</div>
-            <div class="badges">
-              <span class="badge-published">Published</span>
-              <a class="badge" href="https://doi.org/10.36903/physiome.31359823" target="_blank" rel="noopener">DOI</a>
-              <a class="badge" href="https://github.com/matthiaskoenig/losartan-model/" target="_blank" rel="noopener">GitHub</a>
-            </div>
-          </article>
-
-          <article class="card pending">
-            <div class="card-title">An Open and Reproducible Digital Twin for Personalised Anticoagulant Therapy: Modelling Apixaban Pharmacokinetics and Pharmacodynamics</div>
-            <div class="card-meta">Myshkina M, Babaeva M, Nguyen LC, Bedón S, Metternich J, <strong>Elias M</strong>, and König M · Preprints, 2026</div>
-            <div class="badges">
-              <span class="badge-static">Submitted</span>
-              <a class="badge" href="https://doi.org/10.20944/preprints202605.0249.v1" target="_blank" rel="noopener">Preprint</a>
-              <a class="badge" href="https://github.com/matthiaskoenig/apixaban-model" target="_blank" rel="noopener">GitHub</a>
-            </div>
-          </article>
-
-          <article class="card">
-            <div class="card-title">A Physiologically Based Pharmacokinetic and Pharmacodynamic (PBPK/PD) Model of Dapagliflozin in Type 2 Diabetes Mellitus: The Effect of Dosing, Hepatorenal Impairment, and Food</div>
-            <div class="card-meta">Nemitz N, <strong>Elias M</strong>, and König M · Pharmaceutics, 2026</div>
-            <div class="badges">
-              <span class="badge-published">Published</span>
-              <a class="badge" href="https://doi.org/10.3390/pharmaceutics18030287" target="_blank" rel="noopener">DOI</a>
-              <a class="badge" href="https://doi.org/10.20944/preprints202511.0981.v1" target="_blank" rel="noopener">Preprint</a>
-              <a class="badge" href="https://github.com/matthiaskoenig/dapagliflozin-model/" target="_blank" rel="noopener">GitHub</a>
-            </div>
-          </article>
-
-        </div>
-      </section>
-
-      <!-- ── Thesis ── -->
-      <section class="section" id="thesis">
-        <h2 class="section-title">Thesis</h2>
-        <div class="card-list">
-          <article class="card featured">
-            <div class="card-title">
-              Master's Thesis (in progress, working title to be confirmed)
-            </div>
-            <div class="card-meta">
-              M.Sc. Biophysics · Systems Medicine of the Liver · Humboldt University of Berlin · ongoing
-            </div>
-            <p class="card-desc">
-              Work on whole-slide images of liver tissue in the König Lab: visualisation of the gigapixel
-              slides, CNNs and transformers to segment the tissue and quantify damage, and simulation of drug
-              metabolism and damage on the resulting geometry. Scope and title are still WIP.
-            </p>
-            <div class="badges">
-              <span class="badge-static">In progress</span>
-            </div>
-          </article>
-
-          <article class="card featured">
-            <div class="card-title">
-              A physiological-based pharmacokinetic (PBPK) model of the sulfonylurea glimepiride
-            </div>
-            <div class="card-meta">
-              Bachelor's Thesis · B.Sc. Biology · Systems Medicine of the Liver · Humboldt University of Berlin · 2025
-            </div>
-            <p class="card-desc">
-              Development of a whole-body PBPK model of glimepiride based on curated clinical data,
-              investigating pharmacokinetic variability due to renal and hepatic impairment, bodyweight and
-              CYP2C9 genetic variants.
-            </p>
-            <div class="badges">
-              <span class="badge-published">Bachelor's Thesis</span>
-              <a class="badge" href="/assets/Bachelor.Thesis.Michelle.Elias.pdf" target="_blank" rel="noopener">PDF</a>
-            </div>
-          </article>
-        </div>
-      </section>
-
-    </main>
-
-    <footer class="footer">
-      <span>📍 Berlin · Systems Biology | Systems Medicine | Computational Pharmacology</span>
-      <time class="muted" datetime="2026-08-17">Last updated: 17 August 2026</time>
-    </footer>
-
-  </div>
 </body>
 </html>
